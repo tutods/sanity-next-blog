@@ -18,15 +18,6 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "baseUrl": ".",
-    "paths": {
-      "@schemas/*": [
-        "schemas/*"
-      ],
-      "@schemas": [
-        "schemas"
-      ]
-    }
   },
   "include": [
     "**/*.ts",

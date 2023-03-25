@@ -1,0 +1,47 @@
+<svg preserveAspectRatio="xMidYMid meet" focusable="false" width="0" height="0" visibility="hidden"
+     style="pointer-events: none;position: absolute;" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="flag-pt" viewBox="0 0 16 12" fill="none">
+        <g clip-path="url(#clip0_2_303)">
+            <rect width="7" height="12" fill="#2B9F5A"/>
+            <rect x="7" width="9" height="12" fill="#DC251C"/>
+            <circle cx="7" cy="6" r="2.75" stroke="#FFD018" stroke-width="0.5"/>
+            <path d="M5 5C5 4.44772 5.44772 4 6 4H8C8.55228 4 9 4.44772 9 5V6C9 7.10457 8.10457 8 7 8C5.89543 8 5 7.10457 5 6V5Z"
+                  fill="#DC251C"/>
+            <path d="M6 5H8V6C8 6.55228 7.55228 7 7 7C6.44772 7 6 6.55228 6 6V5Z" fill="#F5F8FB"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_2_303">
+                <rect width="16" height="12" fill="white"/>
+            </clipPath>
+        </defs>
+    </symbol>
+    <symbol id="flag-en" viewBox="0 0 16 12" fill="none">
+        <rect width="16" height="11" fill="#EEF3F8"/>
+        <rect width="9" height="7" fill="#41479B"/>
+        <rect x="9" width="7" height="1" fill="#DC251C"/>
+        <rect x="9" y="2" width="7" height="1" fill="#DC251C"/>
+        <rect x="9" y="4" width="7" height="1" fill="#DC251C"/>
+        <rect x="9" y="6" width="7" height="1" fill="#DC251C"/>
+        <rect y="8" width="16" height="1" fill="#DC251C"/>
+        <rect y="10" width="16" height="1" fill="#DC251C"/>
+        <rect x="1" y="1" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="3" y="1" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="5" y="1" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="7" y="1" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="1" y="3" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="3" y="3" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="5" y="3" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="2" y="4" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="4" y="4" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="6" y="4" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="2" y="2" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="4" y="2" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="6" y="2" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="7" y="3" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="1" y="5" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="3" y="5" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="5" y="5" width="1" height="1" fill="#C5D0EC"/>
+        <rect x="7" y="5" width="1" height="1" fill="#C5D0EC"/>
+    </symbol>
+
+</svg>
