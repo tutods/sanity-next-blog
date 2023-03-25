@@ -31,36 +31,17 @@ export const postSchema: SchemaTypeDefinition = {
       },
       validation: (Rule) => Rule.required().error('The slug is required!'),
     },
-    // {
-    //   title: 'Date',
-    //   name: 'date',
-    //   type: 'date',
-    //   fieldset: 'extraDetails',
-    //   options: {
-    //     dateFormat: 'YYYY-MM-DD',
-    //   },
-    // },
     {
       title: 'Headline',
       name: 'headline',
       // TODO: check if use block or test for the headline
-      type: 'array',
-      of: [
-        {
-          type: 'block',
-          styles: [
-            {title: 'Normal', value: 'normal'},
-            {title: 'Quote', value: 'blockquote'},
-          ],
-          lists: [
-            {title: 'Numbered', value: 'number'},
-            {title: 'Bullet', value: 'bullet'},
-          ],
-        },
-      ],
+      type: 'text',
+      rows: 5,
       validation: (Rule) => [
         Rule.required().warning('The headline is not required, but is a good help for your SEO!'),
-        // TODO: custom validation for length
+        Rule.min(50).warning('For a good headline we suggest between 50 a 160 characters.'),
+        // TODO: max
+        Rule.max(160).warning('Attention! Long headlines ...'),
       ],
     },
     {
