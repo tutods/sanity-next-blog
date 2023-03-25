@@ -5,19 +5,17 @@ export const postSchema: SchemaTypeDefinition = {
   name: 'post',
   title: 'Posts',
   type: 'document',
-  fieldsets: [
-    {
-      name: 'extraDetails',
-      title: 'Extra Details',
-      options: {columns: 2, collapsed: true, collapsible: true},
-    },
-  ],
   fields: [
     {
       title: 'Title',
       name: 'title',
       type: 'string',
       placeholder: 'Insert the title of your post',
+      validation: (Rule) => [
+        Rule.required().error('The title is required!'),
+        Rule.min(10).error('The title need at least 10 characters!'),
+        Rule.max(50).warning('Shorter titles are usually better'),
+      ],
     },
     {
       title: 'Slug',
@@ -28,42 +26,42 @@ export const postSchema: SchemaTypeDefinition = {
         slugify: (input) =>
           slugify(input, {
             lower: true,
-            remove: /[*+~.'":;@?!\/\[\](){}]/g,
+            remove: /[*+~.'":;@?!/[\](){}]/g,
           }),
       },
+      validation: (Rule) => Rule.required().error('The slug is required!'),
     },
-    {
-      title: 'Language',
-      name: 'locale',
-      fieldset: 'extraDetails',
-      type: 'string',
-      options: {
-        list: [
-          {
-            title: 'English',
-            value: 'en-US',
-          },
-          {
-            title: 'Portuguese',
-            value: 'pt-PT',
-          },
-        ],
-      },
-    },
-    {
-      title: 'Date',
-      name: 'date',
-      type: 'date',
-      fieldset: 'extraDetails',
-      options: {
-        dateFormat: 'YYYY-MM-DD',
-      },
-    },
+    // {
+    //   title: 'Date',
+    //   name: 'date',
+    //   type: 'date',
+    //   fieldset: 'extraDetails',
+    //   options: {
+    //     dateFormat: 'YYYY-MM-DD',
+    //   },
+    // },
     {
       title: 'Headline',
       name: 'headline',
-      type: 'text',
-      rows: 10,
+      // TODO: check if use block or test for the headline
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+          styles: [
+            {title: 'Normal', value: 'normal'},
+            {title: 'Quote', value: 'blockquote'},
+          ],
+          lists: [
+            {title: 'Numbered', value: 'number'},
+            {title: 'Bullet', value: 'bullet'},
+          ],
+        },
+      ],
+      validation: (Rule) => [
+        Rule.required().warning('The headline is not required, but is a good help for your SEO!'),
+        // TODO: custom validation for length
+      ],
     },
     {
       title: 'Cover Image',
@@ -72,6 +70,7 @@ export const postSchema: SchemaTypeDefinition = {
       options: {
         hotspot: true,
       },
+      validation: (Rule) => Rule.required().error('The cover image is required!'),
     },
     {
       title: 'Content',
@@ -113,16 +112,37 @@ export const postSchema: SchemaTypeDefinition = {
         {
           type: 'code',
           options: {
+            language: 'typescript',
             withFilename: true,
           },
         },
       ],
+      validation: (Rule) => Rule.required().error('The content of your post is required!'),
+    },
+    {
+      title: 'Language',
+      name: 'locale',
+      type: 'string',
+      options: {
+        list: [
+          {
+            title: 'English',
+            value: 'en-US',
+          },
+          {
+            title: 'Portuguese',
+            value: 'pt-PT',
+          },
+        ],
+      },
+      validation: (Rule) => Rule.required().error('The language is required!'),
     },
     {
       title: 'Author',
       name: 'auhtor',
       type: 'reference',
       to: [{type: 'author'}],
+      validation: (Rule) => Rule.required().error('Your post need to have an author!'),
     },
   ],
 }
