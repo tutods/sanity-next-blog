@@ -40,12 +40,6 @@
       "@enums": [
         "./src/shared/enums"
       ],
-      "@types/*": [
-        "./src/shared/types/*"
-      ],
-      "@types": [
-        "./src/shared/types"
-      ],
       "@shared/*": [
         "./src/shared/*"
       ],
