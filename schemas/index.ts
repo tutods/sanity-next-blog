@@ -1,1 +1,3 @@
-export const schemaTypes = []
+import {postSchema} from './documents/post'
+
+export const schemaTypes = [postSchema]

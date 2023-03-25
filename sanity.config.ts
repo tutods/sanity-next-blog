@@ -13,6 +13,6 @@ export default defineConfig({
   plugins: [deskTool(), visionTool()],
 
   schema: {
-    types: schemaTypes,
-  },
+    types: schemaTypes
+  }
 })
