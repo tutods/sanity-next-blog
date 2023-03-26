@@ -30,10 +30,14 @@ export const Header = () => {
           <div className={styles["locale-switcher"]}>
             <ul>
               <li>
-                <Icon name={"flag-pt"} size={"xl"} />
+                <Link locale={"pt"} href={"/"}>
+                  <Icon name={"flag-pt"} size={"xl"} />
+                </Link>
               </li>
               <li>
-                <Icon name={"flag-en"} size={"xl"} />
+                <Link locale={"en"} href={"/"}>
+                  <Icon name={"flag-en"} size={"xl"} />
+                </Link>
               </li>
             </ul>
           </div>

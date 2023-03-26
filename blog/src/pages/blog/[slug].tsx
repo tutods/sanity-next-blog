@@ -1,9 +1,10 @@
 import { GetServerSideProps } from "next";
-import BlockContent from "@sanity/block-content-to-react";
+import PortableText from "@sanity/block-content-to-react";
 import { getBlogPost } from "@shared/client/queries/post";
 import { TransformedPostResponse } from "@shared/types/Post";
 import Image from "next/image";
 import { env } from "@shared/env";
+// import PortableText from "react-portable-text";
 import { serializers } from "@shared/client/utils/serializers";
 
 type Props = { post: TransformedPostResponse };
@@ -62,7 +63,7 @@ export default function Post({ post }: Props) {
           height={150}
         />
       </div>
-      <BlockContent
+      <PortableText
         dataset={env.sanity.dataset}
         projectId={env.sanity.projectId}
         blocks={post.content}

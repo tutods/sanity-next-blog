@@ -1,7 +1,5 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { CodeReference, ImageReferenceWithAlt } from "@shared/types/Common";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { HighlightedCode } from "@components/HighlightedCode";
 
 export const serializers = {
