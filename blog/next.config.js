@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost:3333"],
+    domains: ["cdn.sanity.io"],
+  },
+  env: {
+    SANITY_DATASET: process.env.SANITY_DATASET,
+    SANITY_PROJECT_ID: process.env.SANITY_PROJECT_ID,
   },
 };
 
