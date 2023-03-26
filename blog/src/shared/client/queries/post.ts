@@ -22,14 +22,57 @@ export const getBlogPosts = async (): Promise<
   `);
 
   return posts.map((post) => {
-    const updatedAt = post.updatedAt && parseISO(post.updatedAt);
-    const createddAt = parseISO(post.createdAt);
+    const updatedAt = post._updatedAt ? parseISO(post._updatedAt) : undefined;
+    const createddAt = parseISO(post._createdAt);
 
     return {
       ...post,
-      cover: getSanityImageUrl(post.cover).maxWidth(1920).url(),
-      updatedAt: updatedAt ? format(updatedAt, "dd/MM/yyyy") : undefined,
-      createdAt: format(createddAt, "dd/MM/yyyy"),
+      cover: getSanityImageUrl(post.cover).maxWidth(1000).url(),
+      _updatedAt: updatedAt ? format(updatedAt, "dd/MM/yyyy") : undefined,
+      _createdAt: format(createddAt, "dd/MM/yyyy"),
     };
   });
+};
+
+export const getBlogPost = async (slug: string) => {
+  try {
+    const post = await client
+      .fetch(
+        `
+    *[_type == "post" && slug.current == $slug] {
+      title,
+      headline,
+      cover,
+      content, 
+      locale,
+      'author': author-> {
+        name,
+        avatar
+      },
+      _updatedAt,
+      _createdAt
+    }
+  `,
+        { slug }
+      )
+      .then((res) => res[0]);
+
+    console.log(post);
+
+    const updatedAt = post._updatedAt && parseISO(post._updatedAt);
+    const createddAt = parseISO(post._createdAt);
+
+    return {
+      ...post,
+      cover: getSanityImageUrl(post.cover).maxWidth(2000).url(),
+      author: {
+        ...post.author,
+        avatar: getSanityImageUrl(post.author.avatar).maxWidth(400).url(),
+      },
+      _updatedAt: updatedAt ? format(updatedAt, "dd/MM/yyyy") : undefined,
+      _createdAt: format(createddAt, "dd/MM/yyyy"),
+    };
+  } catch (e) {
+    console.error(e);
+  }
 };

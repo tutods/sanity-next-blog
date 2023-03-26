@@ -120,7 +120,7 @@ export const postSchema: SchemaTypeDefinition = {
     },
     {
       title: 'Author',
-      name: 'auhtor',
+      name: 'author',
       type: 'reference',
       to: [{type: 'author'}],
       validation: (Rule) => Rule.required().error('Your post need to have an author!'),

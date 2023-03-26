@@ -19,3 +19,30 @@ export type ImageReference = {
     y: number;
   };
 };
+
+export type ImageReferenceWithAlt = ImageReference & { alt: string };
+
+export type BlockReference = {
+  _key: string;
+  _type: "block";
+  style: string;
+  children: {
+    _key: string;
+    _type: string;
+    text: string;
+    marks: string[];
+  }[];
+  markDefs: {
+    _key: string;
+    _type: string;
+  }[];
+  listItem?: "bullet" | "number";
+};
+
+export type CodeReference = {
+  _key: string;
+  _type: "code";
+  code: string;
+  filename: string;
+  language: string;
+};

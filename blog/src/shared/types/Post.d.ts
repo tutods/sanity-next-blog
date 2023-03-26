@@ -1,5 +1,12 @@
-import { ImageReference } from "@shared/types/Common";
-import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
+import {
+  BlockReference,
+  CodeReference,
+  ImageReference,
+  ImageReferenceWithAlt,
+} from "@shared/types/Common";
+import { Author } from "@shared/types/Author";
+
+type ContentItem = BlockReference | ImageReferenceWithAlt | CodeReference;
 
 export type Post = {
   title: string;
@@ -7,9 +14,10 @@ export type Post = {
   locale: "pt-PT" | "en-US";
   headline?: string;
   cover: ImageReference;
-  content: any[];
-  createdAt: string;
-  updatedAt?: string;
+  content: ContentItem[];
+  auhtor?: Author;
+  _createdAt: string;
+  _updatedAt?: string;
 };
 
 export type PostWithCoverUrl = Omit<Post, "cover"> & {
@@ -22,9 +30,16 @@ type FieldsToPick =
   | "locale"
   | "cover"
   | "headline"
-  | "updatedAt"
-  | "createdAt";
+  | "_updatedAt"
+  | "_createdAt";
 
 export type PostListResponse = Pick<Post, FieldsToPick>;
 
 export type TransformedPostListResponse = Pick<PostWithCoverUrl, FieldsToPick>;
+
+export type TransformedPostResponse = Omit<PostWithCoverUrl, "author"> & {
+  author: {
+    avatar: string;
+    name: string;
+  };
+};
