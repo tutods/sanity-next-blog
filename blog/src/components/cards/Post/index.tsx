@@ -16,7 +16,7 @@ export const Post = ({ post }: Props) => {
       <div>
         <section>
           <h3>{post.title}</h3>
-          <time>{post.createdAt}</time>
+          <time>{post._createdAt}</time>
         </section>
         <p>{post.headline}</p>
 

@@ -4,7 +4,7 @@ import {
   ImageReference,
   ImageReferenceWithAlt,
 } from "@shared/types/Common";
-import { Author } from "@shared/types/Author";
+import { Author, AuthorImageUrl } from "@shared/types/Author";
 
 type ContentItem = BlockReference | ImageReferenceWithAlt | CodeReference;
 
@@ -15,7 +15,7 @@ export type Post = {
   headline?: string;
   cover: ImageReference;
   content: ContentItem[];
-  auhtor?: Author;
+  author: Author;
   _createdAt: string;
   _updatedAt?: string;
 };
@@ -38,8 +38,5 @@ export type PostListResponse = Pick<Post, FieldsToPick>;
 export type TransformedPostListResponse = Pick<PostWithCoverUrl, FieldsToPick>;
 
 export type TransformedPostResponse = Omit<PostWithCoverUrl, "author"> & {
-  author: {
-    avatar: string;
-    name: string;
-  };
+  author: AuthorImageUrl;
 };

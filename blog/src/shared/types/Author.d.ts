@@ -13,3 +13,5 @@ export type Author = {
   _updatedAt?: string;
   _createdAt?: string;
 };
+
+export type AuthorImageUrl = Omit<Author, "avatar"> & { avatar: string };
