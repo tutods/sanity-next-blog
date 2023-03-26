@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-export default function Blog({ posts }: { posts: PostListResponse[] }) {
+export default function Blog({ posts }: { posts: PostListResponse }) {
   console.log(posts);
 
   return <div>Blog!</div>;
