@@ -1,3 +1,4 @@
+import t from "@shared/translations";
 import { client } from "@shared/client";
 import {
   Post,
@@ -7,6 +8,15 @@ import {
 } from "@shared/types/Post";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { format, parseISO } from "date-fns";
+import { enUS, pt } from "date-fns/locale";
+import { Locales } from "@enums";
+
+const getFormattedDate = (date: string, language: Locales) => {
+  const asDate = parseISO(date);
+  const locale = language === Locales.EN ? enUS : pt;
+
+  return format(asDate, t[language].date.format, { locale });
+};
 
 export const getBlogPosts = async (
   locale = "en"
@@ -19,6 +29,7 @@ export const getBlogPosts = async (
       'slug': slug.current,
       headline,
       cover,
+      locale,
       _updatedAt,
       _createdAt
     }
@@ -28,18 +39,14 @@ export const getBlogPosts = async (
       }
     );
 
-    return posts.map((post) => {
-      // Trasnform string to date
-      const updatedAt = post._updatedAt ? parseISO(post._updatedAt) : undefined;
-      const createdAt = parseISO(post._createdAt);
-
-      return {
-        ...post,
-        cover: getSanityImageUrl(post.cover).maxWidth(1000).url(),
-        _updatedAt: updatedAt ? format(updatedAt, "dd/MM/yyyy") : undefined,
-        _createdAt: format(createdAt, "dd/MM/yyyy"),
-      };
-    });
+    return posts.map((post) => ({
+      ...post,
+      cover: getSanityImageUrl(post.cover).maxWidth(1000).url(),
+      _updatedAt: post._updatedAt
+        ? getFormattedDate(post._updatedAt, post.locale)
+        : undefined,
+      _createdAt: getFormattedDate(post._createdAt, post.locale),
+    }));
   } catch (error) {
     console.error(error);
     return [];
@@ -68,11 +75,6 @@ export const getBlogPost = async (
       )
       .then((res) => res[0]);
 
-    console.log("POST", post);
-    // Transform string to data
-    const updatedAt = post._updatedAt && parseISO(post._updatedAt);
-    const createdAt = parseISO(post._createdAt);
-
     return {
       ...post,
       cover: getSanityImageUrl(post.cover).maxWidth(2000).url(),
@@ -80,8 +82,10 @@ export const getBlogPost = async (
         ...post.author,
         avatar: getSanityImageUrl(post.author?.avatar).maxWidth(400).url(),
       },
-      _updatedAt: updatedAt ? format(updatedAt, "dd/MM/yyyy") : undefined,
-      _createdAt: format(createdAt, "dd/MM/yyyy"),
+      _updatedAt: post._updatedAt
+        ? getFormattedDate(post._updatedAt, post.locale)
+        : undefined,
+      _createdAt: getFormattedDate(post._createdAt, post.locale),
     } as TransformedPostResponse;
   } catch (error) {
     console.error(error);

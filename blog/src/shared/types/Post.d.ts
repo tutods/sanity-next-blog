@@ -5,6 +5,7 @@ import {
   ImageReferenceWithAltAndCaption,
 } from "@shared/types/Common";
 import { Author, AuthorImageUrl } from "@shared/types/Author";
+import { Locales } from "@enums";
 
 type ContentItem =
   | BlockReference
@@ -14,7 +15,7 @@ type ContentItem =
 export type Post = {
   title: string;
   slug: string;
-  locale: "pt" | "en";
+  locale: Locales;
   headline?: string;
   cover: ImageReference;
   content: ContentItem[];
@@ -33,6 +34,7 @@ type FieldsToPick =
   | "locale"
   | "cover"
   | "headline"
+  | "locale"
   | "_updatedAt"
   | "_createdAt";
 

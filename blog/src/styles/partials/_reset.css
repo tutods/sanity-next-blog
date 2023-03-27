@@ -1,6 +1,5 @@
 * {
-    margin: 0;
-    padding: 0;
+    @apply m-0 p-0;
     box-sizing: border-box;
 }
 
@@ -13,11 +12,11 @@ body, html {
 }
 
 h1, h2, h3, h4, h5, h6, p, span, a, b, strong, i, em, mark, small, del, ins, sub, sup {
-    word-break: break-word;
+    @apply break-words;
 }
 
-ol, ul {
-    list-style: none;
+ul, ol {
+    @apply list-none;
 }
 
 input, textarea, button {
@@ -42,8 +41,4 @@ blockquote, q {
 
 a {
     text-decoration: none;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
 }

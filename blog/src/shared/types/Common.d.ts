@@ -50,4 +50,16 @@ export type CodeReference = {
   language: string;
 };
 
-export type AvailableLanguages = "pt" | "en";
+export type InlineCodeBlock = {
+  _type: "span";
+  _key: string;
+  children: string[];
+  mark: "code";
+  markKey: "code";
+};
+
+export type ListBlock = {
+  type: "bullet" | "number";
+  level: number;
+  children: [];
+};

@@ -1,5 +1,8 @@
 {
   "buttons": {
     "read_more": "Ler Mais"
+  },
+  "date": {
+    "format": "dd 'de' MMMM 'de' yyyy"
   }
 }

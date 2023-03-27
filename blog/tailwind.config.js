@@ -18,9 +18,10 @@ module.exports = {
           yellow: "#f1fa8c",
         },
       },
-    },
-    fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        mono: ["Source Code Pro", "monospace"],
+      },
     },
   },
   plugins: [],
