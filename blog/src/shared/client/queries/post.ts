@@ -8,21 +8,25 @@ import {
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { format, parseISO } from "date-fns";
 
-export const getBlogPosts = async (): Promise<
-  TransformedPostListResponse[]
-> => {
+export const getBlogPosts = async (
+  locale = "en"
+): Promise<TransformedPostListResponse[]> => {
   try {
-    const posts: PostListResponse[] = await client.fetch(`
-    *[_type == "post"] {
+    const posts: PostListResponse[] = await client.fetch(
+      `
+    *[_type == "post" && locale == $locale] | order(_createdAt desc) {
       title,
       'slug': slug.current,
       headline,
       cover,
-      locale,
       _updatedAt,
       _createdAt
     }
-  `);
+  `,
+      {
+        locale,
+      }
+    );
 
     return posts.map((post) => {
       // Trasnform string to date
@@ -64,6 +68,7 @@ export const getBlogPost = async (
       )
       .then((res) => res[0]);
 
+    console.log("POST", post);
     // Transform string to data
     const updatedAt = post._updatedAt && parseISO(post._updatedAt);
     const createdAt = parseISO(post._createdAt);

@@ -2,16 +2,19 @@ import {
   BlockReference,
   CodeReference,
   ImageReference,
-  ImageReferenceWithAlt,
+  ImageReferenceWithAltAndCaption,
 } from "@shared/types/Common";
 import { Author, AuthorImageUrl } from "@shared/types/Author";
 
-type ContentItem = BlockReference | ImageReferenceWithAlt | CodeReference;
+type ContentItem =
+  | BlockReference
+  | ImageReferenceWithAltAndCaption
+  | CodeReference;
 
 export type Post = {
   title: string;
   slug: string;
-  locale: "pt-PT" | "en-US";
+  locale: "pt" | "en";
   headline?: string;
   cover: ImageReference;
   content: ContentItem[];

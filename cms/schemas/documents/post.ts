@@ -87,6 +87,16 @@ export const postSchema: SchemaTypeDefinition = {
               options: {
                 isHeighlighted: true,
               },
+              validation: (Rule) => Rule.required().error('The alt text is required.'),
+            },
+            {
+              title: 'Caption',
+              name: 'caption',
+              type: 'string',
+              validation: (Rule) =>
+                Rule.required().warning(
+                  "The caption isn't required but can help to improve your SEO."
+                ),
             },
           ],
         },
@@ -108,11 +118,11 @@ export const postSchema: SchemaTypeDefinition = {
         list: [
           {
             title: 'English',
-            value: 'en-US',
+            value: 'en',
           },
           {
             title: 'Portuguese',
-            value: 'pt-PT',
+            value: 'pt',
           },
         ],
       },

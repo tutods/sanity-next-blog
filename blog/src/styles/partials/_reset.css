@@ -8,8 +8,8 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    @apply text-sans;
+body, html {
+    @apply font-sans;
 }
 
 h1, h2, h3, h4, h5, h6, p, span, a, b, strong, i, em, mark, small, del, ins, sub, sup {

@@ -4,7 +4,6 @@ import { getBlogPost } from "@shared/client/queries/post";
 import { TransformedPostResponse } from "@shared/types/Post";
 import Image from "next/image";
 import { env } from "@shared/env";
-// import PortableText from "react-portable-text";
 import { serializers } from "@shared/client/utils/serializers";
 
 type Props = { post: TransformedPostResponse };

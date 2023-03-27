@@ -20,7 +20,10 @@ export type ImageReference = {
   };
 };
 
-export type ImageReferenceWithAlt = ImageReference & { alt: string };
+export type ImageReferenceWithAltAndCaption = ImageReference & {
+  alt: string;
+  caption?: string;
+};
 
 export type BlockReference = {
   _key: string;

@@ -11,14 +11,18 @@ import { Post } from "@components/cards/Post";
 
 type Props = {
   posts: TransformedPostListResponse[];
+  locale?: string;
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const posts = await getBlogPosts();
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  locale,
+}) => {
+  const posts = await getBlogPosts(locale ?? "en");
 
   return {
     props: {
       posts,
+      locale,
     },
   };
 };

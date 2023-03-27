@@ -1,4 +1,7 @@
-import { CodeReference, ImageReferenceWithAlt } from "@shared/types/Common";
+import {
+  CodeReference,
+  ImageReferenceWithAltAndCaption,
+} from "@shared/types/Common";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { HighlightedCode } from "@components/HighlightedCode";
 
@@ -7,7 +10,7 @@ export const serializers = {
     code: ({ node }: { node: CodeReference }) => (
       <HighlightedCode code={node} />
     ),
-    image: ({ node }: { node: ImageReferenceWithAlt }) => (
+    image: ({ node }: { node: ImageReferenceWithAltAndCaption }) => (
       <figure>
         <img
           src={getSanityImageUrl(node).maxWidth(1080).url()}
