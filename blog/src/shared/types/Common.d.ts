@@ -49,3 +49,5 @@ export type CodeReference = {
   filename: string;
   language: string;
 };
+
+export type AvailableLanguages = "pt" | "en";

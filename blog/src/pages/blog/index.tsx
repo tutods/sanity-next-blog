@@ -8,10 +8,11 @@ import {
 import Image from "next/image";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { Post } from "@components/cards/Post";
+import { Locales } from "@enums";
 
 type Props = {
   posts: TransformedPostListResponse[];
-  locale?: string;
+  locale: Locales;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({
@@ -22,19 +23,19 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   return {
     props: {
       posts,
-      locale,
+      locale: locale ? (locale as Locales) : Locales.EN,
     },
   };
 };
 
-export default function Blog({ posts }: Props) {
+export default function Blog({ posts, locale }: Props) {
   return (
     <ul
       style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 30 }}
     >
       {posts.map((post) => (
         <li key={post.slug}>
-          <Post post={post} />
+          <Post locale={locale} post={post} />
         </li>
       ))}
     </ul>

@@ -40,6 +40,12 @@
       "@enums": [
         "./src/shared/enums"
       ],
+      "@constants/*": [
+        "./src/shared/constants/*"
+      ],
+      "@constants": [
+        "./src/shared/constants"
+      ],
       "@shared/*": [
         "./src/shared/*"
       ],

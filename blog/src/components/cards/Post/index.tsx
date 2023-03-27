@@ -1,13 +1,16 @@
+import t from "@shared/translations";
 import styles from "@components/cards/Post/styles.module.scss";
 import { TransformedPostListResponse } from "@shared/types/Post";
 import Image from "next/image";
 import Link from "next/link";
+import { Locales } from "@enums";
 
 type Props = {
   post: TransformedPostListResponse;
+  locale: Locales;
 };
 
-export const Post = ({ post }: Props) => {
+export const Post = ({ post, locale }: Props) => {
   return (
     <article className={styles["container"]}>
       <div>
@@ -21,7 +24,7 @@ export const Post = ({ post }: Props) => {
         <p>{post.headline}</p>
 
         <Link passHref href={`/blog/${post.slug}`}>
-          <button>View Details</button>
+          <button>{t[locale].buttons.read_more}</button>
         </Link>
       </div>
     </article>
