@@ -16,10 +16,8 @@ export const HighlightedCode = ({
   const [isCopied, setIsCopied] = useState(false);
 
   const onCopy = () => {
-    if (!isCopied) {
-      navigator.clipboard.writeText(code);
-      setIsCopied(true);
-    }
+    navigator.clipboard.writeText(code);
+    setIsCopied(true);
   };
 
   useEffect(() => {
@@ -60,9 +58,9 @@ export const HighlightedCode = ({
         name={isCopied ? "check" : "copy"}
         onClick={onCopy}
         size="xl"
-        className={`${
-          isCopied ? "text-dracula-green" : "text-gray-400"
-        } cursor-pointer transition-all duration-300 ease-in-out absolute md:top-unset md:bottom-4 top-4 right-4 text-gray-400 hover:text-white`}
+        className={`cursor-pointer transition-all duration-300 ease-in-out absolute md:top-unset md:bottom-4 top-4 right-4 text-gray-400 hover:text-white ${
+          isCopied ? "text-dracula-pink" : "text-gray-400"
+        }`}
       />
     </div>
   );

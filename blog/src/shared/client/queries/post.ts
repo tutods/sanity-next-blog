@@ -18,6 +18,19 @@ const getFormattedDate = (date: string, language: Locales) => {
   return format(asDate, t[language].date.format, { locale });
 };
 
+export const getBlogPostsPaths = async (): Promise<
+  { locale: Locales; slug: string }[]
+> => {
+  const blogPostPaths = await client.fetch(`
+    *[_type == "post"] {
+      locale,
+      'slug': slug.current
+    }
+  `);
+
+  return blogPostPaths;
+};
+
 export const getBlogPosts = async (
   locale = "en"
 ): Promise<TransformedPostListResponse[]> => {

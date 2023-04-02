@@ -1,19 +1,33 @@
-import { GetServerSideProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 // import PortableText from "@sanity/block-content-to-react";
 import { PortableText } from "@portabletext/react";
 
-import { getBlogPost } from "@shared/client/queries/post";
+import { getBlogPost, getBlogPostsPaths } from "@shared/client/queries/post";
 import { TransformedPostResponse } from "@shared/types/Post";
 import Image from "next/image";
 import { env } from "@shared/env";
-import { components, serializers } from "@shared/client/utils/components";
+import { components } from "@shared/client/utils/components";
 
 type Props = { post: TransformedPostResponse };
 
-export const getServerSideProps: GetServerSideProps<
-  Props,
-  { slug: string }
-> = async ({ params }) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const blogPostPaths = await getBlogPostsPaths();
+  const paths = blogPostPaths.map(({ locale, slug }) => ({
+    params: {
+      slug,
+    },
+    locale,
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({
+  params,
+}) => {
   if (!params) {
     return {
       props: {},
