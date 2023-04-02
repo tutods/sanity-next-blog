@@ -31,16 +31,20 @@ export type PostWithCoverUrl = Omit<Post, "cover"> & {
 type FieldsToPick =
   | "title"
   | "slug"
-  | "locale"
   | "cover"
   | "headline"
   | "locale"
   | "_updatedAt"
   | "_createdAt";
 
-export type PostListResponse = Pick<Post, FieldsToPick>;
+export type PostListResponse = Pick<Post, FieldsToPick | "author">;
 
-export type TransformedPostListResponse = Pick<PostWithCoverUrl, FieldsToPick>;
+export type TransformedPostListResponse = Pick<
+  PostWithCoverUrl,
+  FieldsToPick
+> & {
+  author: AuthorImageUrl;
+};
 
 export type TransformedPostResponse = Omit<PostWithCoverUrl, "author"> & {
   author: AuthorImageUrl;

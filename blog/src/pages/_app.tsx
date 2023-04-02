@@ -1,4 +1,3 @@
-import "@styles/globals.scss";
 import "@styles/global.css";
 import type { AppProps } from "next/app";
 import { Header } from "@components/ui";
@@ -6,7 +5,7 @@ import { Header } from "@components/ui";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Header />
+      {/*<Header />*/}
       <main>
         <Component {...pageProps} />
       </main>

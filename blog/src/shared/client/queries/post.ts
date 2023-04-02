@@ -29,6 +29,7 @@ export const getBlogPosts = async (
       'slug': slug.current,
       headline,
       cover,
+      'author': author->,
       locale,
       _updatedAt,
       _createdAt
@@ -42,6 +43,10 @@ export const getBlogPosts = async (
     return posts.map((post) => ({
       ...post,
       cover: getSanityImageUrl(post.cover).maxWidth(1000).url(),
+      author: {
+        ...post.author,
+        avatar: getSanityImageUrl(post.author?.avatar).maxWidth(50).url(),
+      },
       _updatedAt: post._updatedAt
         ? getFormattedDate(post._updatedAt, post.locale)
         : undefined,

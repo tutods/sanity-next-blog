@@ -7,7 +7,7 @@ import {
 } from "@shared/types/Post";
 import Image from "next/image";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
-import { Post } from "@components/cards/Post";
+import { PostCard } from "@components/cards/Post";
 import { Locales } from "@enums";
 
 type Props = {
@@ -30,14 +30,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 
 export default function Blog({ posts, locale }: Props) {
   return (
-    <ul
-      style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 30 }}
-    >
-      {posts.map((post) => (
-        <li key={post.slug}>
-          <Post locale={locale} post={post} />
-        </li>
-      ))}
-    </ul>
+    <section className={"py-6"}>
+      <div className="container mx-auto px-4 md:px-0 gap-4 md:gap-6 grid grid-cols-3">
+        {posts.map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
+      </div>
+    </section>
   );
 }

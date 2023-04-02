@@ -1,19 +1,18 @@
-import styles from "@components/ui/Header/styles.module.scss";
 import Link from "next/link";
-import { Icon } from "@components/ui/Icon";
+import { Icon } from "@components/ui";
 
 export const Header = () => {
   return (
-    <header className={styles["container"]}>
-      <div className={styles["limiter"]}>
-        <div className={styles["logo"]}>
+    <header className={"container"}>
+      <div className={"limiter"}>
+        <div className={"logo"}>
           <Link href={"/"} passHref>
             Daniel Sousa @TutoDS
           </Link>
         </div>
 
-        <div className={styles["right-section"]}>
-          <nav className={styles["navigation"]}>
+        <div className={"right-section"}>
+          <nav className={"navigation"}>
             <ul>
               <li>
                 <Link href={"/blog"} passHref>
@@ -27,7 +26,7 @@ export const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className={styles["locale-switcher"]}>
+          <div className={"locale-switcher"}>
             <ul>
               <li>
                 <Link locale={"pt"} href={"/"}>

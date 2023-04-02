@@ -66,7 +66,11 @@ export default function Post({ post }: Props) {
             </h2>
           </section>
 
-          <section className={"relative h-[650px] overflow-hidden shadow"}>
+          <section
+            className={
+              "relative h-[400px] md:h-[650px] md:rounded-md overflow-hidden shadow"
+            }
+          >
             <Image
               src={post.cover}
               alt={post.title}
