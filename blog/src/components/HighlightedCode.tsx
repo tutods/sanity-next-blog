@@ -16,9 +16,9 @@ export const HighlightedCode = ({
 }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const onCopy = () => {
+  const onCopy = async () => {
     if (!isCopied) {
-      navigator.clipboard.writeText(code);
+      await navigator.clipboard.writeText(code);
       setIsCopied(true);
     }
   };
@@ -39,9 +39,10 @@ export const HighlightedCode = ({
     >
       <div
         className={
-          "bg-dracula-currentLine text-dracula-purple w-fit rounded-lg px-2 ml-4"
+          "bg-dracula-currentLine font-medium text-dracula-purple w-fit rounded px-2 ml-4 flex gap-2 items-center"
         }
       >
+        <Icon name={"code"} size={"sm"} />
         {filename}
       </div>
       <SyntaxHighlighter
