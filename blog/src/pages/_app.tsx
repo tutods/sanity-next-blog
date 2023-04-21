@@ -5,7 +5,7 @@ import { Header } from "@components/ui";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/*<Header />*/}
+      <Header />
       <main>
         <Component {...pageProps} />
       </main>

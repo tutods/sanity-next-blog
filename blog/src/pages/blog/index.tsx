@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
 export default function Blog({ posts, locale }: Props) {
   return (
     <section className={"py-6"}>
-      <div className="container mx-auto px-4 gap-4 md:gap-6 grid grid-cols-1 md:grid-cols-3">
+      <div className="container mx-auto px-4 gap-4 md:gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

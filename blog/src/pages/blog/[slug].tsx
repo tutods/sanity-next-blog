@@ -7,6 +7,8 @@ import { TransformedPostResponse } from "@shared/types/Post";
 import Image from "next/image";
 import { env } from "@shared/env";
 import { components } from "@shared/client/utils/components";
+import { PostFallback } from "../../components/fallbacks";
+import { useRouter } from "next/router";
 
 type Props = { post: TransformedPostResponse };
 
@@ -21,7 +23,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -64,6 +66,12 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({
 };
 
 export default function Post({ post }: Props) {
+  const { isFallback } = useRouter();
+
+  if (isFallback) {
+    return <PostFallback />;
+  }
+
   return (
     <article>
       <header className={"bg-gray-50 py-24 text-center"}>
@@ -89,6 +97,7 @@ export default function Post({ post }: Props) {
               src={post.cover}
               alt={post.title}
               fill
+              loading={"lazy"}
               className={"object-cover object-center"}
             />
           </section>

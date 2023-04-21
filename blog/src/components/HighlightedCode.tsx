@@ -3,6 +3,7 @@ import { CodeReference } from "@shared/types/Common";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Icon } from "@components/ui";
 import { useEffect, useState } from "react";
+import clsx from "clsx";
 
 type Props = {
   code: CodeReference;
@@ -16,8 +17,10 @@ export const HighlightedCode = ({
   const [isCopied, setIsCopied] = useState(false);
 
   const onCopy = () => {
-    navigator.clipboard.writeText(code);
-    setIsCopied(true);
+    if (!isCopied) {
+      navigator.clipboard.writeText(code);
+      setIsCopied(true);
+    }
   };
 
   useEffect(() => {
@@ -58,9 +61,11 @@ export const HighlightedCode = ({
         name={isCopied ? "check" : "copy"}
         onClick={onCopy}
         size="xl"
-        className={`cursor-pointer transition-all duration-300 ease-in-out absolute md:top-unset md:bottom-4 top-4 right-4 text-gray-400 hover:text-white ${
-          isCopied ? "text-dracula-pink" : "text-gray-400"
-        }`}
+        className={clsx([
+          "cursor-pointer transition-all duration-300 ease-in-out absolute md:top-unset md:bottom-4 top-4 right-4",
+          { "text-dracula-green": isCopied },
+          { "text-gray-400 hover:text-white": !isCopied },
+        ])}
       />
     </div>
   );
