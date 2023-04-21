@@ -6,9 +6,8 @@ import {
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { HighlightedCode } from "@components/HighlightedCode";
 import Image from "next/image";
-import PortableText from "react-portable-text";
-import { ReactNode } from "react";
 import { PortableTextReactComponents } from "@portabletext/react";
+import Link from "next/link";
 
 export const components: Partial<PortableTextReactComponents> = {
   types: {
@@ -77,6 +76,17 @@ export const components: Partial<PortableTextReactComponents> = {
     ),
   },
   marks: {
+    link: ({ value, children }) => {
+      const target = (value?.href ?? "").startsWith("http")
+        ? "_blank"
+        : undefined;
+
+      return (
+        <Link passHref href={value?.href} target={target}>
+          {children}
+        </Link>
+      );
+    },
     code: ({ children }) => (
       <code
         className={

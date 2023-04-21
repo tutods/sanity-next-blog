@@ -11,4 +11,8 @@
     html {
         @apply bg-[#F7F7F7];
     }
+
+    a {
+        @apply underline hover:text-violet-600 duration-300 transition-colors ease-in-out;
+    }
 }

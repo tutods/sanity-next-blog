@@ -7,8 +7,10 @@ import { TransformedPostResponse } from "@shared/types/Post";
 import Image from "next/image";
 import { env } from "@shared/env";
 import { components } from "@shared/client/utils/components";
-import { PostFallback } from "../../components/fallbacks";
+import { PostFallback } from "@components/fallbacks";
 import { useRouter } from "next/router";
+import { Icon } from "@components/ui";
+import Link from "next/link";
 
 type Props = { post: TransformedPostResponse };
 
@@ -74,7 +76,7 @@ export default function Post({ post }: Props) {
 
   return (
     <article>
-      <header className={"bg-gray-50 py-24 text-center"}>
+      <header className={"bg-slate-100 py-24 text-center"}>
         <div className="container mx-auto flex flex-col gap-16">
           <section className={"flex flex-col gap-6"}>
             <div className="flex flex-col text-center items-center justify-center gap-3">
@@ -105,13 +107,9 @@ export default function Post({ post }: Props) {
       </header>
       <main className={"bg-white py-12"}>
         <section className="container mx-auto px-4">
-          <PortableText
-            value={post.content}
-            components={components}
-            // serializers={serializers}
-          />
+          <PortableText value={post.content} components={components} />
         </section>
-        <section className="mx-auto container px-4 mt-12 border-t border-t-gray-200 py-2 grid grid-cols-2">
+        <section className="mx-auto container px-4 mt-12 border-t border-t-gray-200 py-4 grid grid-cols-2">
           <div className={""}>
             <div className={"flex gap-2"}>
               <div>
@@ -120,18 +118,83 @@ export default function Post({ post }: Props) {
                   alt={post.author.name}
                   width={50}
                   height={50}
-                  className={"object-cover rounded-full"}
+                  className={"object-cover rounded-full ring ring-slate-800/10"}
                 />
               </div>
 
               <div className="flex flex-col gap-0">
                 <p className="font-bold">{post.author.name}</p>
                 <ul className="flex items-center gap-1 text-xs">
-                  <li>G</li>
-                  <li>L</li>
-                  <li>T</li>
-                  <li>I</li>
-                  <li>F</li>
+                  {!!post.author.github && (
+                    <li>
+                      <Link
+                        className={
+                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                        }
+                        href={post.author.github}
+                        target={"_blank"}
+                        passHref
+                      >
+                        <Icon name={"github"} size={"lg"} />
+                      </Link>
+                    </li>
+                  )}
+                  {!!post.author.linkedin && (
+                    <li>
+                      <Link
+                        className={
+                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                        }
+                        href={post.author.linkedin}
+                        target={"_blank"}
+                        passHref
+                      >
+                        <Icon name={"linkedin"} size={"lg"} />
+                      </Link>
+                    </li>
+                  )}
+                  {!!post.author.twitter && (
+                    <li>
+                      <Link
+                        className={
+                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                        }
+                        href={post.author.twitter}
+                        target={"_blank"}
+                        passHref
+                      >
+                        <Icon name={"twitter"} size={"lg"} />
+                      </Link>
+                    </li>
+                  )}
+                  {!!post.author.instagram && (
+                    <li>
+                      <Link
+                        className={
+                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                        }
+                        href={post.author.instagram}
+                        target={"_blank"}
+                        passHref
+                      >
+                        <Icon name={"instagram"} size={"lg"} />
+                      </Link>
+                    </li>
+                  )}
+                  {!!post.author.facebook && (
+                    <li>
+                      <Link
+                        className={
+                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                        }
+                        href={post.author.facebook}
+                        target={"_blank"}
+                        passHref
+                      >
+                        <Icon name={"facebook"} size={"lg"} />
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
