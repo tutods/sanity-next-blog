@@ -39,7 +39,7 @@ export const authorSchema: SchemaTypeDefinition = {
     },
     {
       title: 'LinkedIn',
-      name: 'LinkedIn',
+      name: 'linkedin',
       type: 'string',
       group: 'social',
     },

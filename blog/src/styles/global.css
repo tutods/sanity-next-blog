@@ -13,6 +13,6 @@
     }
 
     a {
-        @apply underline hover:text-violet-600 duration-300 transition-colors ease-in-out;
+        @apply hover:text-violet-600 duration-300 transition-colors ease-in-out;
     }
 }
