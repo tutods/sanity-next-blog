@@ -8,6 +8,7 @@ import { HighlightedCode } from "@components/HighlightedCode";
 import Image from "next/image";
 import { PortableTextReactComponents } from "@portabletext/react";
 import Link from "next/link";
+import { Quote } from "@components/Quote";
 
 export const components: Partial<PortableTextReactComponents> = {
   types: {
@@ -35,6 +36,17 @@ export const components: Partial<PortableTextReactComponents> = {
         )}
       </figure>
     ),
+    quote: ({
+      value,
+      ...props
+    }: {
+      value: { quote: string; source?: string };
+    }) => {
+      console.log(props);
+      return (
+        <Quote quote={value.quote} source={value.source} className={"my-12"} />
+      );
+    },
   },
   block: {
     h1: ({ children }) => (
