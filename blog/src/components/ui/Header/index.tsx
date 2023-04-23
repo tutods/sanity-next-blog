@@ -4,7 +4,9 @@ import { NavLink } from "@components/ui/Header/partials/NavLink";
 
 export const Header = () => {
   return (
-    <header className={"py-6 px-2 md:px-0 bg-white shadow-sm sticky top-0"}>
+    <header
+      className={"py-6 px-2 md:px-0 bg-white shadow-sm sticky top-0 z-10"}
+    >
       <div className={"container mx-auto flex justify-between items-center"}>
         <Link href={"/"} passHref className={"font-bold"}>
           Daniel Sousa @TutoDS
@@ -16,11 +18,6 @@ export const Header = () => {
               <li>
                 <NavLink href={"/blog"} passHref>
                   Blog
-                </NavLink>
-              </li>
-              <li>
-                <NavLink href={"/contacts"} passHref>
-                  Contacts
                 </NavLink>
               </li>
             </ul>

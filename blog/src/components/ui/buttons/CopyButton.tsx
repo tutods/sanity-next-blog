@@ -8,9 +8,14 @@ import clsx from "clsx";
 type Props = {
   textToCopy: string;
   locale: Locales;
+  className?: string;
 };
 
-export const CopyButton = ({ textToCopy, locale = Locales.EN }: Props) => {
+export const CopyButton = ({
+  textToCopy,
+  locale = Locales.EN,
+  className = "",
+}: Props) => {
   const [isCopied, setIsCopied] = useState(false);
 
   const onCopy = async () => {
@@ -32,7 +37,7 @@ export const CopyButton = ({ textToCopy, locale = Locales.EN }: Props) => {
 
   return (
     <Button
-      className={"text-gray-700 font-semibold"}
+      className={clsx(["text-gray-700 font-semibold", className])}
       onClick={onCopy}
       disabled={isCopied}
       icon={
