@@ -11,8 +11,12 @@ import { PostFallback } from "@components/fallbacks";
 import { useRouter } from "next/router";
 import { Icon } from "@components/ui";
 import Link from "next/link";
+import { Button } from "@components/ui/buttons/Button";
+import t from "@shared/translations";
+import { Locales } from "@enums";
+import { CopyButton } from "@components/ui/buttons/CopyButton";
 
-type Props = { post: TransformedPostResponse };
+type Props = { post: TransformedPostResponse; locale: Locales };
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogPostPaths = await getBlogPostsPaths();
@@ -31,6 +35,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({
   params,
+  locale,
 }) => {
   if (!params) {
     return {
@@ -63,13 +68,21 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async ({
   return {
     props: {
       post,
+      locale: locale ? (locale as Locales) : Locales.EN,
     },
     revalidate: 60 * 60 * 24, // 24 hours
   };
 };
 
-export default function Post({ post }: Props) {
-  const { isFallback } = useRouter();
+export default function Post({ post, locale }: Props) {
+  const { isFallback, asPath } = useRouter();
+
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+
+  const URL = `${origin}${asPath}`;
 
   if (isFallback) {
     return <PostFallback />;
@@ -110,97 +123,125 @@ export default function Post({ post }: Props) {
         <section className="container mx-auto px-4">
           <PortableText value={post.content} components={components} />
         </section>
-        <section className="mx-auto container px-4 mt-12 border-t border-t-gray-200 py-4 grid grid-cols-2">
-          <div className={""}>
-            <div className={"flex gap-2"}>
-              <div>
-                <Image
-                  src={post.author.avatar}
-                  alt={post.author.name}
-                  width={50}
-                  height={50}
-                  className={"object-cover rounded-full ring ring-slate-800/10"}
-                />
-              </div>
+        <section className="mx-auto container px-4 mt-12 border-t border-t-gray-200 pt-6 grid grid-cols-2">
+          <div className={"flex gap-2"}>
+            <div>
+              <Image
+                src={post.author.avatar}
+                alt={post.author.name}
+                width={50}
+                height={50}
+                className={"object-cover rounded-full ring ring-slate-800/10"}
+              />
+            </div>
 
-              <div className="flex flex-col gap-0">
-                <p className="font-bold">{post.author.name}</p>
-                <ul className="flex items-center gap-1 text-xs">
-                  {!!post.author.github && (
-                    <li>
-                      <Link
-                        className={
-                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
-                        }
-                        href={post.author.github}
-                        target={"_blank"}
-                        passHref
-                      >
-                        <Icon name={"github"} size={"lg"} />
-                      </Link>
-                    </li>
-                  )}
-                  {!!post.author.linkedin && (
-                    <li>
-                      <Link
-                        className={
-                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
-                        }
-                        href={post.author.linkedin}
-                        target={"_blank"}
-                        passHref
-                      >
-                        <Icon name={"linkedin"} size={"lg"} />
-                      </Link>
-                    </li>
-                  )}
-                  {!!post.author.twitter && (
-                    <li>
-                      <Link
-                        className={
-                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
-                        }
-                        href={post.author.twitter}
-                        target={"_blank"}
-                        passHref
-                      >
-                        <Icon name={"twitter"} size={"lg"} />
-                      </Link>
-                    </li>
-                  )}
-                  {!!post.author.instagram && (
-                    <li>
-                      <Link
-                        className={
-                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
-                        }
-                        href={post.author.instagram}
-                        target={"_blank"}
-                        passHref
-                      >
-                        <Icon name={"instagram"} size={"lg"} />
-                      </Link>
-                    </li>
-                  )}
-                  {!!post.author.facebook && (
-                    <li>
-                      <Link
-                        className={
-                          "hover:text-violet-600 transition-colors ease-in-out duration-300"
-                        }
-                        href={post.author.facebook}
-                        target={"_blank"}
-                        passHref
-                      >
-                        <Icon name={"facebook"} size={"lg"} />
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-              </div>
+            <div className="">
+              <p className="font-bold">{post.author.name}</p>
+              <p className={"mb-2 text-sm text-gray-600"}>{post.author.bio}</p>
+              <ul className="flex items-center gap-1">
+                {!!post.author.github && (
+                  <li>
+                    <Link
+                      className={
+                        "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                      }
+                      href={post.author.github}
+                      target={"_blank"}
+                      passHref
+                    >
+                      <Icon name={"github"} size={"lg"} />
+                    </Link>
+                  </li>
+                )}
+                {!!post.author.linkedin && (
+                  <li>
+                    <Link
+                      className={
+                        "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                      }
+                      href={post.author.linkedin}
+                      target={"_blank"}
+                      passHref
+                    >
+                      <Icon name={"linkedin"} size={"lg"} />
+                    </Link>
+                  </li>
+                )}
+                {!!post.author.twitter && (
+                  <li>
+                    <Link
+                      className={
+                        "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                      }
+                      href={post.author.twitter}
+                      target={"_blank"}
+                      passHref
+                    >
+                      <Icon name={"twitter"} size={"lg"} />
+                    </Link>
+                  </li>
+                )}
+                {!!post.author.instagram && (
+                  <li>
+                    <Link
+                      className={
+                        "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                      }
+                      href={post.author.instagram}
+                      target={"_blank"}
+                      passHref
+                    >
+                      <Icon name={"instagram"} size={"lg"} />
+                    </Link>
+                  </li>
+                )}
+                {!!post.author.facebook && (
+                  <li>
+                    <Link
+                      className={
+                        "hover:text-violet-600 transition-colors ease-in-out duration-300"
+                      }
+                      href={post.author.facebook}
+                      target={"_blank"}
+                      passHref
+                    >
+                      <Icon name={"facebook"} size={"lg"} />
+                    </Link>
+                  </li>
+                )}
+              </ul>
             </div>
           </div>
-          <div></div>
+          <div className={"flex items-center justify-end gap-2"}>
+            <CopyButton locale={locale} textToCopy={URL} />
+            {/*<Link*/}
+            {/*  href={`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`}*/}
+            {/*  target="_blank"*/}
+            {/*  rel="noreferrer"*/}
+            {/*  passHref*/}
+            {/*>*/}
+            {/*  <Button icon={<Icon size={"lg"} name={"linkedin"} />} />*/}
+            {/*</Link>*/}
+            {/*<Link*/}
+            {/*  href={`https://twitter.com/intent/tweet?url=${URL}&text=${post.title.replace(*/}
+            {/*    " ",*/}
+            {/*    "%20"*/}
+            {/*  )}`}*/}
+            {/*  target="_blank"*/}
+            {/*  rel="noreferrer"*/}
+            {/*  passHref*/}
+            {/*>*/}
+            {/*  <Button icon={<Icon size={"lg"} name={"twitter"} />} />*/}
+            {/*</Link>{" "}*/}
+            {/*<Link*/}
+            {/*  href={`https://www.facebook.com/sharer.php?u=${URL}`}*/}
+            {/*  target="_blank"*/}
+            {/*  rel="noreferrer"*/}
+            {/*  passHref*/}
+            {/*>*/}
+            {/*  <Button icon={<Icon size={"lg"} name={"facebook"} />} />*/}
+            {/*</Link>*/}
+          </div>
         </section>
       </main>
     </article>

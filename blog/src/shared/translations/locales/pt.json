@@ -1,6 +1,7 @@
 {
   "buttons": {
-    "read_more": "Ler Mais"
+    "read_more": "Ler Mais",
+    "copy_link": "Copiar Link"
   },
   "date": {
     "format": "dd 'de' MMMM 'de' yyyy"
