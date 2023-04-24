@@ -25,6 +25,8 @@ export const components: Partial<PortableTextReactComponents> = {
           alt={value.alt}
           width={1080}
           height={600}
+          sizes={"1080px"}
+          loading={"lazy"}
           className={"object-cover rounded-xl"}
         />
         {value.caption && (

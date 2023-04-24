@@ -88,7 +88,7 @@ export default function Post({ post, locale }: Props) {
     <article>
       <header className={"bg-slate-100 py-24 text-center"}>
         <div className="container mx-auto flex flex-col gap-16">
-          <section className={"flex flex-col gap-6"}>
+          <section className={"flex flex-col gap-6 px-2 md:px-0"}>
             <div className="flex flex-col text-center items-center justify-center gap-3">
               <p className={"m-0 text-sm font-medium text-violet-600"}>
                 {post._createdAt}
@@ -109,8 +109,9 @@ export default function Post({ post, locale }: Props) {
               src={post.cover}
               alt={post.title}
               fill
-              loading={"lazy"}
+              sizes="1600px"
               className={"object-cover object-center"}
+              priority
             />
           </section>
         </div>
