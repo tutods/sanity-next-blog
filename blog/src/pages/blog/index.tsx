@@ -1,6 +1,5 @@
 import { format, parseISO } from "date-fns";
 import { GetServerSideProps } from "next";
-import { getBlogPosts } from "@shared/client/queries/post";
 import {
   PostListResponse,
   TransformedPostListResponse,
@@ -9,6 +8,7 @@ import Image from "next/image";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { PostCard } from "@components/cards/Post";
 import { Locales } from "@enums";
+import { getBlogPosts } from "@shared/client/services/posts";
 
 type Props = {
   posts: TransformedPostListResponse[];
@@ -18,7 +18,7 @@ type Props = {
 export const getServerSideProps: GetServerSideProps<Props> = async ({
   locale,
 }) => {
-  const posts = await getBlogPosts(locale ?? "en");
+  const posts = await getBlogPosts(locale ?? Locales.EN);
 
   return {
     props: {

@@ -1,18 +1,14 @@
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
-// import PortableText from "@sanity/block-content-to-react";
 import { PortableText } from "@portabletext/react";
 
-import { getBlogPost, getBlogPostsPaths } from "@shared/client/queries/post";
+import { getBlogPost, getBlogPostsPaths } from "@shared/client/services/posts";
 import { TransformedPostResponse } from "@shared/types/Post";
 import Image from "next/image";
-import { env } from "@shared/env";
 import { components } from "@shared/client/utils/components";
 import { PostFallback } from "@components/fallbacks";
 import { useRouter } from "next/router";
 import { Icon } from "@components/ui";
 import Link from "next/link";
-import { Button } from "@components/ui/buttons/Button";
-import t from "@shared/translations";
 import { Locales } from "@enums";
 import { CopyButton } from "@components/ui/buttons/CopyButton";
 

@@ -1,6 +1,6 @@
 import { Locales } from "@enums";
 import { GetStaticProps } from "next";
-import { getBlogPosts } from "@shared/client/queries/post";
+import { getBlogPosts } from "@shared/client/services/posts";
 import { TransformedPostListResponse } from "@shared/types/Post";
 
 type Props = {
