@@ -63,3 +63,10 @@ export type ListBlock = {
   level: number;
   children: [];
 };
+
+export type CustomQuote = {
+  _type: "quote";
+  _key: string;
+  quote: string;
+  source: string;
+};

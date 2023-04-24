@@ -1,5 +1,6 @@
 import {
   CodeReference,
+  CustomQuote,
   ImageReferenceWithAltAndCaption,
   InlineCodeBlock,
 } from "@shared/types/Common";
@@ -36,17 +37,9 @@ export const components: Partial<PortableTextReactComponents> = {
         )}
       </figure>
     ),
-    quote: ({
-      value,
-      ...props
-    }: {
-      value: { quote: string; source?: string };
-    }) => {
-      console.log(props);
-      return (
-        <Quote quote={value.quote} source={value.source} className={"my-12"} />
-      );
-    },
+    quote: ({ value }: { value: CustomQuote }) => (
+      <Quote quote={value.quote} source={value.source} className={"my-12"} />
+    ),
   },
   block: {
     h1: ({ children }) => (
