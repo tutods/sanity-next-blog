@@ -12,9 +12,11 @@ import { enUS, pt } from "date-fns/locale";
 import { Locales } from "@enums";
 import {
   blogPostQuery,
+  blogPostsCountByLocaleQuery,
   blogPostsPathsQuery,
   blogPostsQuery,
 } from "@shared/client/queries/post";
+import { getPagination } from "@utils/getPagination";
 
 const getFormattedDate = (date: string, language: Locales) => {
   const asDate = parseISO(date);
@@ -26,17 +28,20 @@ const getFormattedDate = (date: string, language: Locales) => {
 export const getBlogPostsPaths = async (): Promise<
   { locale: Locales; slug: string }[]
 > => {
-  const blogPostPaths = await client.fetch(blogPostsPathsQuery);
-
-  return blogPostPaths;
+  return client.fetch(blogPostsPathsQuery);
 };
 
 export const getBlogPosts = async (
-  locale = "en"
+  locale = Locales.EN,
+  page = 1
 ): Promise<TransformedPostListResponse[]> => {
   try {
+    const { start, end } = getPagination(page);
+
     const posts: PostListResponse[] = await client.fetch(blogPostsQuery, {
       locale,
+      start,
+      end,
     });
 
     return posts.map((post) => ({
@@ -80,5 +85,18 @@ export const getBlogPost = async (
   } catch (error) {
     console.error(error);
     return;
+  }
+};
+
+export const getBlogPostsCountByLocale = async (locale = Locales.EN) => {
+  try {
+    const count: number = await client.fetch(blogPostsCountByLocaleQuery, {
+      locale,
+    });
+
+    return count;
+  } catch (error) {
+    console.error(error);
+    return 0;
   }
 };

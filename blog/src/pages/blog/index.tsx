@@ -8,22 +8,34 @@ import Image from "next/image";
 import { getSanityImageUrl } from "@utils/getSanityImageUrl";
 import { PostCard } from "@components/cards/Post";
 import { Locales } from "@enums";
-import { getBlogPosts } from "@shared/client/services/posts";
+import {
+  getBlogPosts,
+  getBlogPostsCountByLocale,
+} from "@shared/client/services/posts";
 
 type Props = {
   posts: TransformedPostListResponse[];
   locale: Locales;
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async ({
-  locale,
-}) => {
-  const posts = await getBlogPosts(locale ?? Locales.EN);
+export const getServerSideProps: GetServerSideProps<
+  Props,
+  { page: string }
+> = async ({ locale, query }) => {
+  let { page } = query;
+  const localeAsEnum = locale ? (locale as Locales) : Locales.EN;
+
+  if (page instanceof Array) {
+    page = page[0];
+  }
+
+  const postsCount = await getBlogPostsCountByLocale(localeAsEnum);
+  const posts = await getBlogPosts(localeAsEnum, !!page ? Number(page) : 1);
 
   return {
     props: {
       posts,
-      locale: locale ? (locale as Locales) : Locales.EN,
+      locale: localeAsEnum,
     },
   };
 };

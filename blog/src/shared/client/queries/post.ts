@@ -5,8 +5,12 @@ export const blogPostsPathsQuery = `
     }
   `;
 
+export const blogPostsCountByLocaleQuery = `
+  count(*[_type == 'post' && locale == $locale])
+`;
+
 export const blogPostsQuery = `
-  *[_type == "post" && locale == $locale] | order(_createdAt desc) {
+  *[_type == "post" && locale == $locale] | order(_createdAt desc) [$start...$end] {
     title,
     'slug': slug.current,
     headline,
