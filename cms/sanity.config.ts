@@ -5,7 +5,7 @@ import {schemaTypes} from './schemas'
 import {codeInput} from '@sanity/code-input'
 import {unsplashImageAsset} from 'sanity-plugin-asset-source-unsplash'
 
-const {SANITY_STUDIO_DATASET, SANITY_STUDIO_PROJECT_ID} = process.env
+const {SANITY_STUDIO_DATASET, SANITY_STUDIO_PROJECT_ID} = import.meta.env
 
 export default defineConfig({
   name: 'default',
