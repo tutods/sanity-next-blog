@@ -5,5 +5,9 @@
   },
   "date": {
     "format": "dd 'de' MMMM 'de' yyyy"
+  },
+  "pagination": {
+    "next": "Próximo",
+    "previous": "Anterior"
   }
 }
