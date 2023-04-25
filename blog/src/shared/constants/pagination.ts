@@ -1,1 +1,1 @@
-export const DEFAULT_PAGINATION_OFFSET = 2;
+export const DEFAULT_PAGINATION_OFFSET = 9;
