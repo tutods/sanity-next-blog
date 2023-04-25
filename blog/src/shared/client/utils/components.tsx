@@ -20,14 +20,18 @@ export const components: Partial<PortableTextReactComponents> = {
       <figure
         className={"my-6 flex flex-col gap-4 items-center justify-center"}
       >
+        {/*TODO: improve images*/}
         <Image
           src={getSanityImageUrl(value).maxWidth(1080).maxHeight(600).url()}
           alt={value.alt}
           width={1080}
           height={600}
-          sizes={"1080px"}
+          style={{
+            width: 1080,
+            height: 600,
+          }}
           loading={"lazy"}
-          className={"object-cover rounded-xl"}
+          className={"rounded-xl object-cover"}
         />
         {value.caption && (
           <figcaption
