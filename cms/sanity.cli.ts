@@ -1,8 +1,10 @@
 import {defineCliConfig} from 'sanity/cli'
 
+const {SANITY_STUDIO_DATASET, SANITY_STUDIO_PROJECT_ID} = process.env
+
 export default defineCliConfig({
   api: {
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
-    dataset: process.env.SANITY_STUDIO_DATASET,
+    projectId: SANITY_STUDIO_PROJECT_ID ?? '',
+    dataset: SANITY_STUDIO_DATASET ?? 'production',
   },
 })
