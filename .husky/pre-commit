@@ -5,7 +5,7 @@ rootDir=$(pwd)
 
 for package in $(ls packages);
 do
-    echo "~~~~ $package ~~~~\n"
+    echo "~~~~ $package ~~~~"
     cd "$rootDir/packages/$package"
     yarn lint-staged
 done
