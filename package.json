@@ -3,17 +3,24 @@
   "version": "0.1.0",
   "description": "Blog using Sanity CMS, Next.js and Tailwind CSS",
   "repository": "https://github.com/tutods/sanity-next-blog.git",
+  "private": true,
+  "license": "MIT",
   "author": {
     "name": "Daniel Sousa",
     "url": "https://github.com/tutods"
   },
-  "license": "MIT",
-  "private": false,
+  "scripts": {
+    "dev": "wsrun --parallel dev",
+    "build": "wsrun --parallel build",
+    "prepare": "husky install"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.6.1",
     "@commitlint/config-conventional": "^17.6.1",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.1",
-    "prettier": "^2.8.8"
-  }
+    "wsrun": "^5.2.4"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
