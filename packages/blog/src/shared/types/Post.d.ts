@@ -3,9 +3,9 @@ import {
   CodeReference,
   ImageReference,
   ImageReferenceWithAltAndCaption,
-} from "@shared/types/Common";
-import { Author, AuthorImageUrl } from "@shared/types/Author";
-import { Locales } from "@enums";
+} from '@shared/types/Common';
+import { Author, AuthorImageUrl } from '@shared/types/Author';
+import { Locales } from '@enums';
 
 type ContentItem =
   | BlockReference
@@ -24,20 +24,20 @@ export type Post = {
   _updatedAt?: string;
 };
 
-export type PostWithCoverUrl = Omit<Post, "cover"> & {
+export type PostWithCoverUrl = Omit<Post, 'cover'> & {
   cover: string;
 };
 
 type FieldsToPick =
-  | "title"
-  | "slug"
-  | "cover"
-  | "headline"
-  | "locale"
-  | "_updatedAt"
-  | "_createdAt";
+  | 'title'
+  | 'slug'
+  | 'cover'
+  | 'headline'
+  | 'locale'
+  | '_updatedAt'
+  | '_createdAt';
 
-export type PostListResponse = Pick<Post, FieldsToPick | "author">;
+export type PostListResponse = Pick<Post, FieldsToPick | 'author'>;
 
 export type TransformedPostListResponse = Pick<
   PostWithCoverUrl,
@@ -46,6 +46,6 @@ export type TransformedPostListResponse = Pick<
   author: AuthorImageUrl;
 };
 
-export type TransformedPostResponse = Omit<PostWithCoverUrl, "author"> & {
+export type TransformedPostResponse = Omit<PostWithCoverUrl, 'author'> & {
   author: AuthorImageUrl;
 };

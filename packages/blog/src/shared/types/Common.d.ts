@@ -1,8 +1,8 @@
 export type ImageReference = {
-  _type: "image";
+  _type: 'image';
   asset: {
     _ref: string;
-    _type: "reference";
+    _type: 'reference';
   };
   crop?: {
     _type: string;
@@ -27,7 +27,7 @@ export type ImageReferenceWithAltAndCaption = ImageReference & {
 
 export type BlockReference = {
   _key: string;
-  _type: "block";
+  _type: 'block';
   style: string;
   children: {
     _key: string;
@@ -39,33 +39,33 @@ export type BlockReference = {
     _key: string;
     _type: string;
   }[];
-  listItem?: "bullet" | "number";
+  listItem?: 'bullet' | 'number';
 };
 
 export type CodeReference = {
   _key: string;
-  _type: "code";
+  _type: 'code';
   code: string;
   filename: string;
   language: string;
 };
 
 export type InlineCodeBlock = {
-  _type: "span";
+  _type: 'span';
   _key: string;
   children: string[];
-  mark: "code";
-  markKey: "code";
+  mark: 'code';
+  markKey: 'code';
 };
 
 export type ListBlock = {
-  type: "bullet" | "number";
+  type: 'bullet' | 'number';
   level: number;
   children: [];
 };
 
 export type CustomQuote = {
-  _type: "quote";
+  _type: 'quote';
   _key: string;
   quote: string;
   source: string;

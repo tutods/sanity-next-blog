@@ -1,20 +1,20 @@
-import { SchemaTypeDefinition } from "sanity";
+import { SchemaTypeDefinition } from 'sanity';
 
 export const quoteSchema: SchemaTypeDefinition = {
-  title: "Quote",
-  name: "quote",
-  type: "object",
+  title: 'Quote',
+  name: 'quote',
+  type: 'object',
   fields: [
     {
-      title: "Quote",
-      name: "quote",
-      type: "text",
-      validation: (Rule) => [Rule.required().error("The quote is required!")],
+      title: 'Quote',
+      name: 'quote',
+      type: 'text',
+      validation: (Rule) => [Rule.required().error('The quote is required!')],
     },
     {
-      title: "Source/Author",
-      name: "source",
-      type: "string",
+      title: 'Source/Author',
+      name: 'source',
+      type: 'string',
     },
   ],
 };

@@ -1,9 +1,9 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { CodeReference } from "@shared/types/Common";
-import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { Icon } from "@components/ui";
-import { useEffect, useState } from "react";
-import clsx from "clsx";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { CodeReference } from '@shared/types/Common';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { Icon } from '@components/ui';
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 
 type Props = {
   code: CodeReference;
@@ -12,7 +12,7 @@ type Props = {
 
 export const HighlightedCode = ({
   code: { code, filename, language },
-  className = "",
+  className = '',
 }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
 
@@ -35,20 +35,19 @@ export const HighlightedCode = ({
 
   return (
     <div
-      className={`bg-dracula-background pt-4 rounded-lg relative ${className}`}
+      className={clsx([
+        'bg-dracula-background pt-4 rounded-lg relative',
+        className,
+      ])}
     >
-      <div
-        className={
-          "bg-dracula-currentLine font-medium text-dracula-purple w-fit rounded px-2 ml-4 flex gap-2 items-center"
-        }
-      >
-        <Icon name={"code"} size={"sm"} />
+      <div className="bg-dracula-currentLine font-medium text-dracula-purple w-fit rounded px-2 ml-4 flex gap-2 items-center">
+        <Icon name={'code'} size={'sm'} />
         {filename}
       </div>
       <SyntaxHighlighter
         customStyle={{
           margin: 0,
-          borderRadius: "0 0 0.5rem 0.5rem",
+          borderRadius: '0 0 0.5rem 0.5rem',
         }}
         showLineNumbers
         wrapLines
@@ -59,13 +58,13 @@ export const HighlightedCode = ({
       </SyntaxHighlighter>
 
       <Icon
-        name={isCopied ? "check" : "copy"}
+        name={isCopied ? 'check' : 'copy'}
         onClick={onCopy}
         size="xl"
         className={clsx([
-          "cursor-pointer transition-all duration-300 ease-in-out absolute md:top-unset md:bottom-4 top-4 right-4",
-          { "text-dracula-green": isCopied },
-          { "text-gray-400 hover:text-white": !isCopied },
+          'cursor-pointer transition-all duration-300 ease-in-out absolute md:top-unset md:bottom-4 top-4 right-4',
+          { 'text-dracula-green': isCopied },
+          { 'text-gray-400 hover:text-white': !isCopied },
         ])}
       />
     </div>

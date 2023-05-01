@@ -1,1 +1,1 @@
-export * from "@components/cards/Post";
+export * from '@components/cards/Post';

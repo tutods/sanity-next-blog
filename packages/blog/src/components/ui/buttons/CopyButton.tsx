@@ -1,9 +1,9 @@
-import { ReactNode, useEffect, useState } from "react";
-import { Locales } from "@enums";
-import { Icon } from "@components/ui";
-import t from "@shared/translations";
-import { Button } from "@components/ui/buttons/Button";
-import clsx from "clsx";
+import { ReactNode, useEffect, useState } from 'react';
+import { Locales } from '@enums';
+import { Icon } from '@components/ui';
+import t from '@shared/translations';
+import { Button } from '@components/ui/buttons/Button';
+import clsx from 'clsx';
 
 type Props = {
   textToCopy: string;
@@ -14,7 +14,7 @@ type Props = {
 export const CopyButton = ({
   textToCopy,
   locale = Locales.EN,
-  className = "",
+  className = '',
 }: Props) => {
   const [isCopied, setIsCopied] = useState(false);
 
@@ -37,13 +37,13 @@ export const CopyButton = ({
 
   return (
     <Button
-      className={clsx(["text-gray-700 font-semibold", className])}
+      className={clsx(['text-gray-700 font-semibold', className])}
       onClick={onCopy}
       disabled={isCopied}
       icon={
         <Icon
           name={clsx([{ copy: !isCopied }, { check: isCopied }])}
-          size={"lg"}
+          size={'lg'}
         />
       }
     >

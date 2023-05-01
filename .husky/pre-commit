@@ -7,6 +7,6 @@ for package in $(ls packages);
 do
     echo "~~~~ $package ~~~~"
     cd "$rootDir/packages/$package"
-    yarn lint-staged
+    npx lint-staged
 done
 

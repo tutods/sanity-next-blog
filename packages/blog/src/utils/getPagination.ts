@@ -1,4 +1,4 @@
-import { DEFAULT_PAGINATION_OFFSET } from "@constants";
+import { DEFAULT_PAGINATION_OFFSET } from '@constants';
 
 export const getPagination = (page = 1, offset = DEFAULT_PAGINATION_OFFSET) => {
   return {

@@ -1,1 +1,1 @@
-export * from "@components/fallbacks/PostFallback";
+export * from '@components/fallbacks/PostFallback';

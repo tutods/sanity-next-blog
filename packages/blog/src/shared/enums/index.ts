@@ -1,1 +1,1 @@
-export * from "@enums/locales";
+export * from '@enums/locales';

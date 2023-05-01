@@ -1,1 +1,1 @@
-export * from "@components/blog/Pagination";
+export * from '@components/blog/Pagination';

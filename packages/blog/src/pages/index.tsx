@@ -1,7 +1,7 @@
-import { Locales } from "@enums";
-import { GetStaticProps } from "next";
-import { getBlogPosts } from "@shared/client/services/posts";
-import { TransformedPostListResponse } from "@shared/types/Post";
+import { Locales } from '@enums';
+import { GetStaticProps } from 'next';
+import { getBlogPosts } from '@shared/client/services/posts';
+import { TransformedPostListResponse } from '@shared/types/Post';
 
 type Props = {
   locale: Locales;

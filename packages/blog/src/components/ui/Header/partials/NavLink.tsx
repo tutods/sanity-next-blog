@@ -1,7 +1,7 @@
-import Link, { LinkProps } from "next/link";
-import { ReactNode } from "react";
-import clsx from "clsx";
-import { useRouter } from "next/router";
+import Link, { LinkProps } from 'next/link';
+import { ReactNode } from 'react';
+import clsx from 'clsx';
+import { useRouter } from 'next/router';
 
 type Props = LinkProps & {
   children: ReactNode;
@@ -11,7 +11,7 @@ type Props = LinkProps & {
 export const NavLink = ({
   href,
   passHref,
-  className = "",
+  className = '',
   children,
   ...props
 }: Props) => {
@@ -23,9 +23,9 @@ export const NavLink = ({
   return (
     <Link
       className={clsx([
-        "px-2 py-1 hover:text-violet-600 transition-all ease-in-out duration-300",
+        'px-2 py-1 hover:text-violet-600 transition-all ease-in-out duration-300',
         className,
-        { "text-violet-600 font-semibold": isActive },
+        { 'text-violet-600 font-semibold': isActive },
       ])}
       href={href}
       passHref={passHref}

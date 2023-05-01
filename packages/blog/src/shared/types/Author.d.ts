@@ -1,4 +1,4 @@
-import { ImageReference } from "@shared/types/Common";
+import { ImageReference } from '@shared/types/Common';
 
 export type Author = {
   _id?: string;
@@ -14,4 +14,4 @@ export type Author = {
   _createdAt?: string;
 };
 
-export type AuthorImageUrl = Omit<Author, "avatar"> & { avatar: string };
+export type AuthorImageUrl = Omit<Author, 'avatar'> & { avatar: string };

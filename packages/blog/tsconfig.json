@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,53 +15,21 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ],
-      "@utils": [
-        "./src/utils"
-      ],
-      "@enums/*": [
-        "./src/shared/enums/*"
-      ],
-      "@enums": [
-        "./src/shared/enums"
-      ],
-      "@constants/*": [
-        "./src/shared/constants/*"
-      ],
-      "@constants": [
-        "./src/shared/constants"
-      ],
-      "@shared/*": [
-        "./src/shared/*"
-      ],
-      "@shared": [
-        "./src/shared"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
+      "@components/*": ["./src/components/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@utils": ["./src/utils"],
+      "@enums/*": ["./src/shared/enums/*"],
+      "@enums": ["./src/shared/enums"],
+      "@constants/*": ["./src/shared/constants/*"],
+      "@constants": ["./src/shared/constants"],
+      "@shared/*": ["./src/shared/*"],
+      "@shared": ["./src/shared"],
+      "@styles/*": ["./src/styles/*"],
+      "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

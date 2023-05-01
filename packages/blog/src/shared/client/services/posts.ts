@@ -1,22 +1,22 @@
-import t from "@shared/translations";
-import { client } from "@shared/client";
+import t from '@shared/translations';
+import { client } from '@shared/client';
 import {
   Post,
   PostListResponse,
   TransformedPostListResponse,
   TransformedPostResponse,
-} from "@shared/types/Post";
-import { getSanityImageUrl } from "@utils/getSanityImageUrl";
-import { format, parseISO } from "date-fns";
-import { enUS, pt } from "date-fns/locale";
-import { Locales } from "@enums";
+} from '@shared/types/Post';
+import { getSanityImageUrl } from '@utils/getSanityImageUrl';
+import { format, parseISO } from 'date-fns';
+import { enUS, pt } from 'date-fns/locale';
+import { Locales } from '@enums';
 import {
   blogPostQuery,
   blogPostsCountByLocaleQuery,
   blogPostsPathsQuery,
   blogPostsQuery,
-} from "@shared/client/queries/post";
-import { getPagination } from "@utils/getPagination";
+} from '@shared/client/queries/post';
+import { getPagination } from '@utils/getPagination';
 
 const getFormattedDate = (date: string, language: Locales) => {
   const asDate = parseISO(date);
@@ -33,7 +33,7 @@ export const getBlogPostsPaths = async (): Promise<
 
 export const getBlogPosts = async (
   locale = Locales.EN,
-  page = 1
+  page = 1,
 ): Promise<TransformedPostListResponse[]> => {
   try {
     const { start, end } = getPagination(page);
@@ -63,7 +63,7 @@ export const getBlogPosts = async (
 };
 
 export const getBlogPost = async (
-  slug: string
+  slug: string,
 ): Promise<TransformedPostResponse | undefined> => {
   try {
     const post: Post = await client

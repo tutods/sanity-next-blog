@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "wsrun --parallel dev",
     "build": "wsrun --parallel build",
+    "format": "wsrun --parallel format",
     "prepare": "husky install"
   },
   "devDependencies": {

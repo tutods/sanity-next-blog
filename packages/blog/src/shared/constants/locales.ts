@@ -1,1 +1,1 @@
-export const AVAILABLE_LOCALES = ["en", "pt"];
+export const AVAILABLE_LOCALES = ['en', 'pt'];
