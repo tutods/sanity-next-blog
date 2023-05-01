@@ -20,6 +20,10 @@ On this section you can find some of the changes I have made during this course
 - [x] **Custom layout**:
   - On this repo you will not find the same layout as the course, I have been searching for inspiration on **Figma**, **Pinterest**, **Dribble**, etc.
 - [x] Use **Tailwind CSS** instead of **Sass**;
+- [x] Use "monorepo";
+- [x] Add **ESLint** and **Prettier** config;
+- [x] Add **Husky** hooks;
+- [x] Use `wsrun` to run multiple scripts at once.
 
 ### Layout changes
 
