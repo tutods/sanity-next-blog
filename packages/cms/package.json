@@ -2,7 +2,7 @@
   "name": "udemy-blog",
   "version": "1.0.0",
   "main": "package.json",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "dev": "sanity dev",
     "start": "sanity start",

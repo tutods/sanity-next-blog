@@ -135,7 +135,7 @@ export default function Post({ post, locale }: Props) {
             <div className="">
               <p className="font-bold">{post.author.name}</p>
               <p className={'mb-2 text-sm text-gray-600'}>{post.author.bio}</p>
-              <ul className="flex items-center gap-1">
+              <ul className="flex items-center gap-2">
                 {!!post.author.github && (
                   <li>
                     <Link
@@ -211,33 +211,6 @@ export default function Post({ post, locale }: Props) {
           </div>
           <div className={'flex items-center justify-end gap-2'}>
             <CopyButton locale={locale} textToCopy={URL} />
-            {/*<Link*/}
-            {/*  href={`https://www.linkedin.com/shareArticle?mini=true&url=${URL}`}*/}
-            {/*  target="_blank"*/}
-            {/*  rel="noreferrer"*/}
-            {/*  passHref*/}
-            {/*>*/}
-            {/*  <Button icon={<Icon size={"lg"} name={"linkedin"} />} />*/}
-            {/*</Link>*/}
-            {/*<Link*/}
-            {/*  href={`https://twitter.com/intent/tweet?url=${URL}&text=${post.title.replace(*/}
-            {/*    " ",*/}
-            {/*    "%20"*/}
-            {/*  )}`}*/}
-            {/*  target="_blank"*/}
-            {/*  rel="noreferrer"*/}
-            {/*  passHref*/}
-            {/*>*/}
-            {/*  <Button icon={<Icon size={"lg"} name={"twitter"} />} />*/}
-            {/*</Link>{" "}*/}
-            {/*<Link*/}
-            {/*  href={`https://www.facebook.com/sharer.php?u=${URL}`}*/}
-            {/*  target="_blank"*/}
-            {/*  rel="noreferrer"*/}
-            {/*  passHref*/}
-            {/*>*/}
-            {/*  <Button icon={<Icon size={"lg"} name={"facebook"} />} />*/}
-            {/*</Link>*/}
           </div>
         </section>
       </main>
