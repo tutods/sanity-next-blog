@@ -7,6 +7,10 @@
 This repo contains all the code produced during the course **"Desenvolvendo Blog Internacional com Sanity e Next
 "** on **Udemy**, unfortunately this course is no more available to buy.
 
+## 🛠 Skills
+
+![nextjs][nextjs] ![tailwindcss][tailwindcss] ![typescript][typescript] ![sanity][sanity]
+
 ## Changelog
 
 On this section you can find some of the changes I have made during this course
@@ -66,3 +70,16 @@ On this section you can find some of the changes I have made during this course
 </ul>
 </div>
 </details>
+
+## 🔗 More About Me
+
+[
+![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)
+](https://linkedin.com/in/daniel-sousa-tutods)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/dsousa_12)
+[![instragram](https://img.shields.io/badge/instragram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://twitter.com/dsousa_12)
+
+[nextjs]: https://img.shields.io/badge/nextjs-1C1C1F?style=for-the-badge&logo=next.js&logoColor=white
+[tailwindcss]: https://img.shields.io/badge/tailwindcss-1C1C1F?style=for-the-badge&logo=tailwindcss&logoColor=white
+[typescript]: https://img.shields.io/badge/typescript-1C1C1F?style=for-the-badge&logo=typescript&logoColor=white
+[sanity]: https://img.shields.io/badge/sanity-1C1C1F?style=for-the-badge
