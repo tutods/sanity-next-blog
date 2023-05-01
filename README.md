@@ -6,20 +6,65 @@
 
 On this section you can find some of the changes I have made during this course
 
-### Custom Code block
+- [x] **Custom layout**:
+  - On this repo you will not find the same layout as the course, I have been searching for inspiration on **Figma**, **Pinterest**, **Dribble**, etc.
+- [x] Use **Tailwind CSS** instead of **Sass**;
 
-![Code Block](.github/assets/code-block.png)
+### Layout changes
 
-- using `react-syntax-highlighter`;
-- add copy button;
-- add filename with extension on top.
+These are some pieces of the layout
+
+<details>
+<summary>Custom Code Block</summary>
+
+<div>
+<img src='.github/assets/code-block.png' alt='code' width='500px' />
+
+<ul>
+<li>using <code>react-syntax-highlighter</code>;</li>
+<li>add copy button;</li>
+<li>add filename with extension on top;</li>
+</ul>
+
+<blockquote>Used <strong>Dracula</strong> theme colors.</blockquote>
+</div>
+</details>
+<br />
+
+<details>
+<summary>Custom Author Footer</summary>
+<div>
+<img src='.github/assets/author-footer.png' alt='author' width='500px' />
+
+<ul>
+<li>button to copy blog post link;</li>
+<li>show all author details <small>(social links, bio and photo)</small>;</li>
+</ul>
+</div>
+</details>
 
 <br />
 
-### Custom Author Footer
+<details>
+<summary>Pagination</summary>
+<div>
+<img src='.github/assets/author-footer.png' alt='author' width='500px' />
 
-![Author](.github/assets/author-footer.png)
+<ul>
+<li>Disable <strong>Next.js Link</strong> when don't have next/previous page;</li>
+</ul>
+</div>
+</details>
 
-- show button to copy post link;
-- show author photo and name;
-- show social networks and bio.
+<br />
+
+<details>
+<summary>Custom Quote</summary>
+<div>
+<img src='.github/assets/custom-quote.png' alt='quote' width='500px' />
+
+<ul>
+<li>Create custom quote block, with quote and author or source;</li>
+</ul>
+</div>
+</details>
