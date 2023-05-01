@@ -31,7 +31,7 @@ On this section you can find some of the changes I have made during this course
 <details>
 <summary>Custom Quote</summary>
 <div>
-<img src='.github/assets/custom-quote.png' alt='quote' width='500px' />
+<img src='.github/assets/custom-quote.png' alt='quote' />
 
 <ul>
 <li>Create custom quote block, with quote and author or source;</li>
@@ -42,7 +42,7 @@ On this section you can find some of the changes I have made during this course
 <details>
 <summary>Custom Author Footer</summary>
 <div>
-<img src='.github/assets/author-footer.png' alt='author' width='500px' />
+<img src='.github/assets/author-footer.png' alt='author' />
 
 <ul>
 <li>button to copy blog post link;</li>
@@ -54,7 +54,7 @@ On this section you can find some of the changes I have made during this course
 <details>
 <summary>Pagination</summary>
 <div>
-<img src='.github/assets/author-footer.png' alt='author' width='500px' />
+<img src='.github/assets/author-footer.png' alt='author' />
 
 <ul>
 <li>Disable <strong>Next.js Link</strong> when don't have next/previous page;</li>
