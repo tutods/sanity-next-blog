@@ -4,15 +4,22 @@
 
 ## Changelog
 
-<div style='display: grid; grid-template-columns: repeat(2, 1fr);align-items: center;'>
-<img src=".github/assets/code-block.png" alt="code" width="600px">
-<div>
+On this section you can find some of the changes I have made during this course
 
-### Custom Code Block
+### Custom Code block
+
+![Code Block](.github/assets/code-block.png)
 
 - using `react-syntax-highlighter`;
 - add copy button;
-- add filename with extension on top;
+- add filename with extension on top.
 
-</div>
-</div>
+<br />
+
+### Custom Author Footer
+
+![Author](.github/assets/author-footer.png)
+
+- show button to copy post link;
+- show author photo and name;
+- show social networks and bio.
