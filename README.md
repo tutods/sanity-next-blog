@@ -54,7 +54,7 @@ On this section you can find some of the changes I have made during this course
 <details>
 <summary>Pagination</summary>
 <div>
-<img src='.github/assets/author-footer.png' alt='author' />
+<img src='.github/assets/pagination.png' alt='author' />
 
 <ul>
 <li>Disable <strong>Next.js Link</strong> when don't have next/previous page;</li>
