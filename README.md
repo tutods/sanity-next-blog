@@ -29,7 +29,6 @@ These are some pieces of the layout
 <blockquote>Used <strong>Dracula</strong> theme colors.</blockquote>
 </div>
 </details>
-<br />
 
 <details>
 <summary>Custom Author Footer</summary>
@@ -43,8 +42,6 @@ These are some pieces of the layout
 </div>
 </details>
 
-<br />
-
 <details>
 <summary>Pagination</summary>
 <div>
@@ -55,8 +52,6 @@ These are some pieces of the layout
 </ul>
 </div>
 </details>
-
-<br />
 
 <details>
 <summary>Custom Quote</summary>
