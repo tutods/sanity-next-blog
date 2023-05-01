@@ -16,7 +16,7 @@ On this section you can find some of the changes I have made during this course
 <summary>Custom Code Block</summary>
 
 <div>
-<img src='.github/assets/code-block.png' alt='code' width='500px' />
+<img src='.github/assets/code-block.png' alt='code' />
 
 <ul>
 <li>using <code>react-syntax-highlighter</code>;</li>
@@ -25,6 +25,17 @@ On this section you can find some of the changes I have made during this course
 </ul>
 
 <blockquote>Used <strong>Dracula</strong> theme colors.</blockquote>
+</div>
+</details>
+
+<details>
+<summary>Custom Quote</summary>
+<div>
+<img src='.github/assets/custom-quote.png' alt='quote' width='500px' />
+
+<ul>
+<li>Create custom quote block, with quote and author or source;</li>
+</ul>
 </div>
 </details>
 
@@ -47,17 +58,6 @@ On this section you can find some of the changes I have made during this course
 
 <ul>
 <li>Disable <strong>Next.js Link</strong> when don't have next/previous page;</li>
-</ul>
-</div>
-</details>
-
-<details>
-<summary>Custom Quote</summary>
-<div>
-<img src='.github/assets/custom-quote.png' alt='quote' width='500px' />
-
-<ul>
-<li>Create custom quote block, with quote and author or source;</li>
 </ul>
 </div>
 </details>
