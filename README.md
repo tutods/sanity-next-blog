@@ -2,6 +2,11 @@
 <img src=".github/assets/cover.jpg" alt='Udemy Blog' width='1000px' height='auto' />
 </div>
 
+## Course
+
+This repo contains all the code produced during the course **"Desenvolvendo Blog Internacional com Sanity e Next
+"** on **Udemy**, unfortunately this course is no more available to buy.
+
 ## Changelog
 
 On this section you can find some of the changes I have made during this course
@@ -57,7 +62,7 @@ On this section you can find some of the changes I have made during this course
 <img src='.github/assets/pagination.png' alt='author' />
 
 <ul>
-<li>Disable <strong>Next.js Link</strong> when don't have next/previous page;</li>
+<li>Disable <strong>Next.js Link</strong> when doen't have next/previous page;</li>
 </ul>
 </div>
 </details>
