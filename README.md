@@ -78,7 +78,7 @@ I didn't follow the original design of the course, but the big changes are:
 <br/>
 <br/>
 <details>
-<summary>Blog Post Layout</summary>
+<summary>Blog Post Layout <strong>(entire page)</strong></summary>
 
 <p>This is the overall layout for an entire blog post.</p>
 <img src=".github/assets/blog-post.png" />
