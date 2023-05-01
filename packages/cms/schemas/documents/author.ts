@@ -6,6 +6,10 @@ export const authorSchema: SchemaTypeDefinition = {
   type: 'document',
   groups: [
     {
+      title: 'Main Info.',
+      name: 'info',
+    },
+    {
       title: 'Social',
       name: 'social',
     },
@@ -18,18 +22,21 @@ export const authorSchema: SchemaTypeDefinition = {
       options: {
         hotspot: true,
       },
+      group: 'info',
     },
     {
       title: 'Name',
       name: 'name',
       type: 'string',
       placeholder: 'Insert author name',
+      group: 'info',
     },
     {
       title: 'Bio',
       name: 'bio',
       type: 'text',
       placeholder: 'Short bio about the author',
+      group: 'info',
     },
     {
       title: 'GitHub',
