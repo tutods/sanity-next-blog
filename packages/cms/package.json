@@ -38,7 +38,7 @@
     "*.{ts,tsx}": [
       "prettier --write"
     ],
-    "*.{md,html,js,jsx}": [
+    "*.{md,html,js,jsx,css}": [
       "prettier --write"
     ]
   }
