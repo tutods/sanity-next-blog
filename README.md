@@ -7,6 +7,8 @@
 This repo contains all the code produced during the course **"Desenvolvendo Blog Internacional com Sanity e Next
 "** on **Udemy**, unfortunately this course is no more available to buy.
 
+This course is focused in use **Sanity CMS**, as content manager, and **Next.js** as frontend framework to build a dynamic blog, where the user can easly create, edit or delete new posts easly.
+
 ## 🛠 Skills
 
 ![nextjs][nextjs] ![tailwindcss][tailwindcss] ![typescript][typescript] ![sanity][sanity]
@@ -20,6 +22,8 @@ On this section you can find some of the changes I have made during this course
 - [x] Use **Tailwind CSS** instead of **Sass**;
 
 ### Layout changes
+
+I didn't follow the original design of the course, but the big changes are:
 
 <details>
 <summary>Custom Code Block</summary>
@@ -69,6 +73,16 @@ On this section you can find some of the changes I have made during this course
 <li>Disable <strong>Next.js Link</strong> when doen't have next/previous page;</li>
 </ul>
 </div>
+</details>
+
+<br/>
+<br/>
+<details>
+<summary>Blog Post Layout</summary>
+
+<p>This is the overall layout for an entire blog post.</p>
+<img src=".github/assets/blog-post.png" />
+<img src=".github/assets/blog-post-2.png" />
 </details>
 
 ## 🔗 More About Me
