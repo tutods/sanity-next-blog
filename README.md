@@ -12,8 +12,6 @@ On this section you can find some of the changes I have made during this course
 
 ### Layout changes
 
-These are some pieces of the layout
-
 <details>
 <summary>Custom Code Block</summary>
 
