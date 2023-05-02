@@ -1,22 +1,23 @@
-import t from '@shared/translations';
-import { client } from '@shared/client';
-import {
-  Post,
-  PostListResponse,
-  TransformedPostListResponse,
-  TransformedPostResponse,
-} from '@shared/types/Post';
-import { getSanityImageUrl } from '@utils/getSanityImageUrl';
+import { Locales } from '@enums';
 import { format, parseISO } from 'date-fns';
 import { enUS, pt } from 'date-fns/locale';
-import { Locales } from '@enums';
+
+import { client } from '@shared/client';
 import {
   blogPostQuery,
   blogPostsCountByLocaleQuery,
   blogPostsPathsQuery,
   blogPostsQuery,
 } from '@shared/client/queries/post';
+import t from '@shared/translations';
+import {
+  Post,
+  PostListResponse,
+  TransformedPostListResponse,
+  TransformedPostResponse,
+} from '@shared/types/Post';
 import { getPagination } from '@utils/getPagination';
+import { getSanityImageUrl } from '@utils/getSanityImageUrl';
 
 const getFormattedDate = (date: string, language: Locales) => {
   const asDate = parseISO(date);

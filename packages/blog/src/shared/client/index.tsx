@@ -1,4 +1,5 @@
 import { createClient } from '@sanity/client';
+
 import { env } from '@shared/env';
 
 export const client = createClient({

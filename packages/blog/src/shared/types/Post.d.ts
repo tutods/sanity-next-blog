@@ -1,11 +1,12 @@
+import { Locales } from '@enums';
+
+import { Author, AuthorImageUrl } from '@shared/types/Author';
 import {
   BlockReference,
   CodeReference,
   ImageReference,
   ImageReferenceWithAltAndCaption,
 } from '@shared/types/Common';
-import { Author, AuthorImageUrl } from '@shared/types/Author';
-import { Locales } from '@enums';
 
 type ContentItem =
   | BlockReference

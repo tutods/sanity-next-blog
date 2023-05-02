@@ -1,8 +1,7 @@
-import t from '@shared/translations';
-import { TransformedPostListResponse } from '@shared/types/Post';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Locales } from '@enums';
+
+import { TransformedPostListResponse } from '@shared/types/Post';
 
 type Props = {
   post: TransformedPostListResponse;
@@ -12,19 +11,13 @@ export const PostCard = ({
   post: { title, cover, _createdAt, slug, headline, author },
 }: Props) => {
   return (
-    <article
-      className={
-        'w-full bg-white shadow-post rounded-sm p-6 inline-flex flex-col gap-8'
-      }
-    >
-      <section
-        className={'relative overflow-hidden h-60 aspect-square rounded-md'}
-      >
+    <article className="w-full bg-white shadow-post rounded-sm p-6 inline-flex flex-col gap-8">
+      <section className="relative overflow-hidden h-60 aspect-square rounded-md">
         <Image
-          alt={title}
-          src={cover}
           fill
-          className={'object-cover object-center'}
+          alt={title}
+          className="object-cover object-center"
+          src={cover}
         />
       </section>
       <section>
@@ -33,16 +26,16 @@ export const PostCard = ({
             {title}
           </h3>
         </Link>
-        <p className={'text-gray-600 line-clamp-2 font-normal'}>{headline}</p>
+        <p className="text-gray-600 line-clamp-2 font-normal">{headline}</p>
 
         {!!author && (
           <div className="flex items-center gap-3 mt-6">
             <Image
-              src={author.avatar}
               alt={author.name}
-              width={40}
+              className="rounded-full"
               height={40}
-              className={'rounded-full'}
+              src={author.avatar}
+              width={40}
             />
 
             <div>

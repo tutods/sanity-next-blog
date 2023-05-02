@@ -1,8 +1,9 @@
-import t from '@shared/translations';
 import Link from 'next/link';
 import { Locales } from '@enums';
-import { Icon } from '@components/ui';
 import clsx from 'clsx';
+
+import { Icon } from '@components/ui';
+import t from '@shared/translations';
 
 type Props = {
   page: number;
@@ -24,19 +25,9 @@ export const BlogPagination = ({
   const NextWrapper = isNextVisible ? Link : 'button';
 
   return (
-    <ul className={'flex items-center justify-center gap-4'}>
+    <ul className="flex items-center justify-center gap-4">
       <li>
         <PreviousWrapper
-          href={
-            isPrevVisible
-              ? {
-                  pathname: '/blog',
-                  query: {
-                    page: page - 1,
-                  },
-                }
-              : {}
-          }
           className={clsx([
             COMMON_PAGE_STYLE,
             'inline-flex items-center justify-center gap-1',
@@ -49,8 +40,18 @@ export const BlogPagination = ({
                 !isPrevVisible,
             },
           ])}
+          href={
+            isPrevVisible
+              ? {
+                  pathname: '/blog',
+                  query: {
+                    page: page - 1,
+                  },
+                }
+              : {}
+          }
         >
-          <Icon name={'chevron-left'} size={'md'} />
+          <Icon name="chevron-left" size="md" />
           {t[locale].pagination.previous}
         </PreviousWrapper>
       </li>
@@ -67,16 +68,6 @@ export const BlogPagination = ({
       </li>
       <li>
         <NextWrapper
-          href={
-            isNextVisible
-              ? {
-                  pathname: '/blog',
-                  query: {
-                    page: page + 1,
-                  },
-                }
-              : {}
-          }
           className={clsx([
             COMMON_PAGE_STYLE,
             'inline-flex items-center justify-center gap-1',
@@ -89,9 +80,18 @@ export const BlogPagination = ({
                 !isNextVisible,
             },
           ])}
+          href={
+            isNextVisible
+              ? {
+                  pathname: '/blog',
+                  query: {
+                    page: page + 1,
+                  },
+                }
+              : {}
+          }
         >
-          {t[locale].pagination.next}{' '}
-          <Icon name={'chevron-right'} size={'md'} />
+          {t[locale].pagination.next} <Icon name="chevron-right" size="md" />
         </NextWrapper>
       </li>
     </ul>

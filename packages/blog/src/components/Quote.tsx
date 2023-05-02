@@ -13,7 +13,7 @@ export const Quote = ({ quote, source, className = '' }: Props) => (
       className,
     ])}
   >
-    <blockquote className={'mb-8 text-xl'}>&ldquo;{quote}&rdquo;</blockquote>
-    {!!source && <p className={'text-sm text-gray-500'}>— {source}</p>}
+    <blockquote className="mb-8 text-xl">&ldquo;{quote}&rdquo;</blockquote>
+    {!!source && <p className="text-sm text-gray-500">— {source}</p>}
   </section>
 );

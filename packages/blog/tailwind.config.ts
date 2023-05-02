@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
-import { colors, spacing, shadows, fonts } from './theme';
+
+// eslint-disable-next-line @typescript-eslint/no-restricted-imports
+import { colors, fonts, shadows, spacing } from './theme';
 
 export default {
   content: ['./src/**/*.{tsx,jsx}', './public/*.html'],

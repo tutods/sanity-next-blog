@@ -1,9 +1,10 @@
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { CodeReference } from '@shared/types/Common';
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Icon } from '@components/ui';
 import { useEffect, useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import clsx from 'clsx';
+
+import { Icon } from '@components/ui';
+import { CodeReference } from '@shared/types/Common';
 
 type Props = {
   code: CodeReference;
@@ -41,18 +42,18 @@ export const HighlightedCode = ({
       ])}
     >
       <div className="bg-dracula-currentLine font-medium text-dracula-purple w-fit rounded px-2 ml-4 flex gap-2 items-center">
-        <Icon name={'code'} size={'sm'} />
+        <Icon name="code" size="sm" />
         {filename}
       </div>
       <SyntaxHighlighter
-        customStyle={{
-          margin: 0,
-          borderRadius: '0 0 0.5rem 0.5rem',
-        }}
         showLineNumbers
         wrapLines
         language={language}
         style={dracula}
+        customStyle={{
+          margin: 0,
+          borderRadius: '0 0 0.5rem 0.5rem',
+        }}
       >
         {code}
       </SyntaxHighlighter>
