@@ -28,20 +28,30 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.1",
     "@types/react-syntax-highlighter": "^15.5.6",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.0",
-    "eslint": "^8.39.0",
+    "eslint": "^8.6.0",
     "eslint-config-next": "^13.3.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^3.4.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "lint-staged": "^13.2.2",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
     "tailwindcss": "^3.3.1"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
-      "prettier --write"
+    "*.{ts,tsx,js,jsx}": [
+      "prettier --write",
+      "eslint --ignore-path .gitignore --fix ."
     ],
-    "*.{md,html,js,jsx,css}": [
+    "*.{md,html,scss,css}": [
       "prettier --write"
     ]
   }
